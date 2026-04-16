@@ -19,13 +19,13 @@ const CRITICAL_LOTTIE = animatedLayers.map((l) => l.animationUrl);
 const STEP_THRESHOLDS = [0, 30, 65, 95];
 
 const MIN_DISPLAY_MS = 3200;
-const TIMEOUT_MS = 10000;
+const SAFETY_TIMEOUT_MS = 20000;
 
 function preloadImage(src) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const img = new Image();
-    img.onload = resolve;
-    img.onerror = resolve;
+    img.onload = () => resolve({ src, ok: true });
+    img.onerror = () => reject(new Error(`Image failed: ${src}`));
     img.src = src;
   });
 }
@@ -51,27 +51,51 @@ export default function Preloader({ onReady }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const allTasks = [
-      ...CRITICAL_IMAGES.map((src) => preloadImage(src)),
-      ...CRITICAL_LOTTIE.map((url) => preloadAndCacheLottie(url)),
-    ];
-
-    const total = allTasks.length;
+    const total = CRITICAL_IMAGES.length + CRITICAL_LOTTIE.length;
     let loaded = 0;
+    let failedCount = 0;
     const startTime = Date.now();
+    let timedOut = false;
 
-    const tracked = allTasks.map((p) =>
-      p.then(() => {
-        loaded++;
-        const pct = Math.round((loaded / total) * 100);
-        setProgress(pct);
-      })
+    const bump = (ok) => {
+      loaded++;
+      if (!ok) failedCount++;
+      const pct = Math.round((loaded / total) * 100);
+      setProgress(pct);
+    };
+
+    const imagePromises = CRITICAL_IMAGES.map((src) =>
+      preloadImage(src)
+        .then(() => bump(true))
+        .catch(() => {
+          console.warn(`[Preloader] Image failed to load: ${src}`);
+          bump(false);
+        })
     );
 
-    const allDone = Promise.all(tracked);
-    const timeout = new Promise((resolve) => setTimeout(resolve, TIMEOUT_MS));
+    const lottiePromises = CRITICAL_LOTTIE.map((url) =>
+      preloadAndCacheLottie(url).then((data) => bump(data !== null))
+    );
 
-    Promise.race([allDone, timeout]).then(() => {
+    const allAssets = Promise.all([...imagePromises, ...lottiePromises]);
+
+    const safetyTimeout = new Promise((resolve) => {
+      setTimeout(() => {
+        timedOut = true;
+        resolve();
+      }, SAFETY_TIMEOUT_MS);
+    });
+
+    Promise.race([allAssets, safetyTimeout]).then(() => {
+      if (timedOut) {
+        const missing = total - loaded;
+        if (missing > 0) {
+          console.warn(
+            `[Preloader] Safety timeout reached. ${missing} of ${total} assets still loading (${failedCount} failed). Proceeding anyway.`
+          );
+        }
+      }
+
       const elapsed = Date.now() - startTime;
       const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
       setTimeout(() => {
