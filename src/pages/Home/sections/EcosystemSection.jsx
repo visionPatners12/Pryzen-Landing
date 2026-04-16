@@ -203,15 +203,15 @@ export const EcosystemSection = () => {
             <div className="flex flex-col gap-3 mt-6">
               <BettingRail
                 assetIcon={<USDTIcon />}
-                assetName="USDT"
+                assetName={t("crypto.usdt")}
                 chainIcon={<PolygonIcon />}
-                chainName="Polygon"
+                chainName={t("crypto.polygon")}
               />
               <BettingRail
                 assetIcon={<WETHIcon />}
-                assetName="WETH"
+                assetName={t("crypto.weth")}
                 chainIcon={<BaseIcon />}
-                chainName="Base"
+                chainName={t("crypto.base")}
               />
             </div>
           </div>

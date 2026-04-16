@@ -173,6 +173,16 @@
     "subtitle": "Enter the next era of sports",
     "button": "Get Genesis Access"
   },
+  "langSwitch": {
+    "en": "EN",
+    "fr": "FR"
+  },
+  "crypto": {
+    "usdt": "USDT",
+    "weth": "WETH",
+    "polygon": "Polygon",
+    "base": "Base"
+  },
   "footer": {
     "copyright": "© {{year}} Team Index. All rights reserved.",
     "powered": "Powered by Polymarket. Built for fans."

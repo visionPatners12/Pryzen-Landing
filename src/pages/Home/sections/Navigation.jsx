@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { GoldButton } from "../../../components/ui/GoldButton";
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLang = i18n.language?.startsWith("fr") ? "fr" : "en";
 
   const toggle = () => {
@@ -18,9 +18,9 @@ const LanguageSwitcher = () => {
       onClick={toggle}
       className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/10"
     >
-      <span className={currentLang === "en" ? "text-[#FEB413]" : "text-white/50"}>EN</span>
+      <span className={currentLang === "en" ? "text-[#FEB413]" : "text-white/50"}>{t("langSwitch.en")}</span>
       <span className="text-white/20">/</span>
-      <span className={currentLang === "fr" ? "text-[#FEB413]" : "text-white/50"}>FR</span>
+      <span className={currentLang === "fr" ? "text-[#FEB413]" : "text-white/50"}>{t("langSwitch.fr")}</span>
     </button>
   );
 };
