@@ -53,7 +53,7 @@ const CenterLogo = ({ size = 140 }) => (
 
 export const BenefitsSection = () => (
   <section
-    id="pryze"
+    id="why-pryzen"
     className="py-20 w-[90%] sm:w-[85%] lg:w-[80%] max-w-[1400px] mx-auto"
   >
     {/* ── Section header ── */}
