@@ -9,9 +9,9 @@ export const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { href: "#fan-app", label: "Fan App" },
-    { href: "#sportbook", label: "Sportbook" },
-    { href: "#team-index", label: "Team Index" },
+    { href: "#fan-app", label: "Fan App", externalUrl: "https://fan-app.pryzen.io" },
+    { href: "#sportbook", label: "Sportbook", externalUrl: "https://sportbook.pryzen.io" },
+    { href: "#team-index", label: "Team Index", externalUrl: "https://team-index.pryzen.io" },
     { href: "#pryx", label: "PRYX" },
     { href: "#pryze", label: "PRYZE" },
   ];
@@ -88,24 +88,47 @@ export const Navigation = () => {
           <nav className="hidden lg:flex items-center gap-0 flex-1 justify-center px-8">
             {navItems.map((item, index) => (
               <div key={item.href} className="flex items-center gap-0">
-                <button
-                  onClick={() => handleNavClick(item.href)}
-                  className={`relative inline-flex items-center justify-center font-manrope text-[18px] font-medium px-6 py-2.5 rounded-lg transition-colors pb-1 whitespace-nowrap ${
-                    activeLink === item.href
-                      ? "text-white"
-                      : "text-white/70"
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {activeLink === item.href && (
-                    <img
-                      src="/landing/landing_assests/header-shape.svg"
-                      alt=""
-                      aria-hidden
-                      className="absolute bottom-[2px] left-1/2 -translate-x-1/2 w-[calc(100%-10px)] h-2.5 object-contain opacity-100 drop-shadow-[0_2px_8px_rgba(254,180,19,0.5)] pointer-events-none"
-                    />
-                  )}
-                </button>
+                {item.externalUrl ? (
+                  <a
+                    href={item.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`relative inline-flex items-center justify-center font-manrope text-[18px] font-medium px-6 py-2.5 rounded-lg transition-colors pb-1 whitespace-nowrap no-underline ${
+                      activeLink === item.href
+                        ? "text-white"
+                        : "text-white/70"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    {activeLink === item.href && (
+                      <img
+                        src="/landing/landing_assests/header-shape.svg"
+                        alt=""
+                        aria-hidden
+                        className="absolute bottom-[2px] left-1/2 -translate-x-1/2 w-[calc(100%-10px)] h-2.5 object-contain opacity-100 drop-shadow-[0_2px_8px_rgba(254,180,19,0.5)] pointer-events-none"
+                      />
+                    )}
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => handleNavClick(item.href)}
+                    className={`relative inline-flex items-center justify-center font-manrope text-[18px] font-medium px-6 py-2.5 rounded-lg transition-colors pb-1 whitespace-nowrap ${
+                      activeLink === item.href
+                        ? "text-white"
+                        : "text-white/70"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    {activeLink === item.href && (
+                      <img
+                        src="/landing/landing_assests/header-shape.svg"
+                        alt=""
+                        aria-hidden
+                        className="absolute bottom-[2px] left-1/2 -translate-x-1/2 w-[calc(100%-10px)] h-2.5 object-contain opacity-100 drop-shadow-[0_2px_8px_rgba(254,180,19,0.5)] pointer-events-none"
+                      />
+                    )}
+                  </button>
+                )}
               </div>
             ))}
           </nav>
@@ -182,9 +205,30 @@ export const Navigation = () => {
 
               {/* Nav links */}
               <div className="flex flex-col px-4 py-6 gap-1 flex-1 overflow-y-auto">
-                {navItems.map(({ label, href }, i) => {
+                {navItems.map(({ label, href, externalUrl }, i) => {
                   const isActive = activeLink === href;
-                  return (
+                  return externalUrl ? (
+                    <motion.a
+                      key={href}
+                      href={externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={closeMenu}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 + 0.1, duration: 0.22 }}
+                      className={`flex items-center gap-3 w-full text-left px-4 py-3.5 rounded-xl font-manrope text-sm font-medium transition-all no-underline ${
+                        isActive
+                          ? "bg-white/8 text-white"
+                          : "text-white/60 hover:text-white hover:bg-white/5"
+                      }`}
+                    >
+                      {isActive && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FEB413] shrink-0" />
+                      )}
+                      <span className={isActive ? "" : "ml-4"}>{label}</span>
+                    </motion.a>
+                  ) : (
                     <motion.button
                       key={href}
                       initial={{ opacity: 0, x: 20 }}
