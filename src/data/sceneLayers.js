@@ -1,0 +1,126 @@
+export const SCENE_WIDTH = 6100;
+export const SCENE_HEIGHT = 2160;
+
+export const staticLayers = [
+  { id: "bg-default", src: "/assets/svg/default-background.svg", zIndex: 1 },
+  { id: "screen-default", src: "/assets/svg/dual-screen-default.svg", zIndex: 2 },
+  { id: "cones", src: "/assets/svg/cones.svg", zIndex: 3 },
+  { id: "cone-shadow", src: "/assets/svg/cone-shadow.svg", zIndex: 4 },
+  {
+    id: "chair-front",
+    src: "/assets/svg/round-chair-front.svg",
+    zIndex: 13,
+    placement: { x: 4460, y: 2040, width: 561, height: 120 },
+  },
+  {
+    id: "chair-back",
+    src: "/assets/svg/round-chair-back.svg",
+    zIndex: 14,
+    placement: { x: 4324, y: 1883, width: 506, height: 277 },
+  },
+  { id: "lounge-default", src: "/assets/svg/lounge-default.svg", zIndex: 7 },
+  { id: "lounge-light-hover", src: "/assets/svg/lounge-light-hover.svg", zIndex: 8 },
+  { id: "left-part-sofa", src: "/assets/svg/left-part-sofa.svg", zIndex: 9 },
+  { id: "table", src: "/assets/svg/table.svg", zIndex: 10 },
+  { id: "table-shadow", src: "/assets/svg/table-shadow.svg", zIndex: 11 },
+  { id: "table-stuffs-misc", src: "/assets/svg/table-stuffs-misc.svg", zIndex: 12 },
+];
+
+export const animatedLayers = [
+  {
+    id: "lottie-basket-1",
+    name: "Basket Ball 1",
+    animationUrl: "/assets/lottie/basket-ball-1/animations/effbfe9f-98f4-4e5b-bc09-1f56a9718bd0.json",
+    zIndex: 9,
+    style: {
+      left: "41.4%",
+      top: "60.5%",
+      width: "11.9%",
+      transform: "translate(-44.8%, -65.1%)",
+    },
+  },
+  {
+    id: "lottie-sofa-guy-1",
+    name: "Sofa Guy 1",
+    animationUrl: "/assets/lottie/sofa-guy-1/animations/2a79a033-bc14-47c8-92df-c6b0acd02dcb.json",
+    zIndex: 9,
+    style: {
+      left: "61.5%",
+      top: "68.1%",
+      width: "20.2%",
+      transform: "translate(-25.3%, -50.0%)",
+    },
+  },
+  {
+    id: "lottie-chiliz",
+    name: "Chiliz",
+    animationUrl: "/assets/lottie/chiliz/animations/10dc854d-a108-497f-ba5e-33d2c822f63c.json",
+    zIndex: 9,
+    style: {
+      left: "12.4%",
+      top: "17.5%",
+      width: "20.8%",
+      transform: "translate(-50.0%, -50.0%)",
+    },
+  },
+  {
+    id: "lottie-coffee",
+    name: "Coffee",
+    animationUrl: "/assets/lottie/coffee/animations/95b8034e-1f63-4a6f-8dc1-0b68c42f69dd.json",
+    zIndex: 15,
+    style: {
+      left: "51.7%",
+      top: "65.2%",
+      width: "3.9%",
+      transform: "translate(24.7%, -50.0%)",
+    },
+  },
+  {
+    id: "lottie-football-1",
+    name: "Football 1",
+    animationUrl: "/assets/lottie/football-1/animations/5665569e-f45d-4d5e-b542-eb3f935a77bf.json",
+    zIndex: 9,
+    style: {
+      left: "30.0%",
+      top: "41.9%",
+      width: "9.0%",
+      transform: "translate(-50.0%, -50.0%)",
+    },
+  },
+  {
+    id: "lottie-pad-paper",
+    name: "Pad Paper",
+    animationUrl: "/assets/lottie/pad-paper/animations/793ed699-1627-48cb-9be2-1e85a850c441.json",
+    zIndex: 15,
+    style: {
+      left: "53.3%",
+      top: "82.7%",
+      width: "5.8%",
+      transform: "translate(-60.3%, -6.7%)",
+    },
+  },
+  {
+    id: "lottie-signage",
+    name: "Signage",
+    animationUrl: "/assets/lottie/signage/animations/fdd36935-6bdf-4a86-a641-3bfcd9f917ae.json",
+    zIndex: 9,
+    style: {
+      left: "16.0%",
+      top: "14.1%",
+      width: "50.0%",
+      transform: "translate(45.0%, -50.0%)",
+    },
+  },
+  {
+    id: "lottie-ticket-with-glow",
+    name: "Ticket With Glow",
+    animationUrl: "/assets/lottie/ticket-with-glow/animations/88ada3eb-4d73-407c-9f16-f824f85818ab.json",
+    zIndex: 15,
+    style: {
+      left: "41.2%",
+      top: "72.0%",
+      width: "10.0%",
+      transform: "translate(-50.0%, -50.0%)",
+    },
+  },
+];

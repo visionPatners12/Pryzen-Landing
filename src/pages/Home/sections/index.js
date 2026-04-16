@@ -1,0 +1,9 @@
+export { Navigation } from "./Navigation";
+export { HeroSection } from "./HeroSection";
+export { EcosystemSection } from "./EcosystemSection";
+export { BenefitsSection } from "./BenefitsSection";
+export { HowItWorksSection } from "./HowItWorksSection";
+export { PryxPryzeSection } from "./PryxPryzeSection";
+export { FeaturedExperienceSection } from "./FeaturedExperienceSection";
+export { CTASection } from "./CTASection";
+export { Footer } from "./Footer";

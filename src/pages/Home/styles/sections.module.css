@@ -1,0 +1,274 @@
+/* Navigation Styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(13, 10, 6, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.navbarSolid {
+  background-color: rgba(13, 10, 6, 0.95);
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+  font-family: 'Jura', sans-serif;
+}
+
+.navLink:hover {
+  color: #FEB413;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Jura', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f6f8ff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.builtPill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FEB413;
+  color: #0D0A06;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Jura', sans-serif;
+}
+
+.builtPill img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroBackgroundLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.heroMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.heroMeta p {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Jura', sans-serif;
+}
+
+.heroTitle {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-family: 'Jura', sans-serif;
+}
+
+.heroDescription {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 20px 0;
+  max-width: 500px;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.heroScene {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .heroScene {
+    height: 400px;
+  }
+
+  .heroTitle {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .heroDescription {
+    font-size: 16px;
+  }
+
+  .heroScene {
+    height: 300px;
+  }
+
+  .navLinks {
+    gap: 20px;
+    font-size: 12px;
+  }
+
+  .heroContent {
+    gap: 30px;
+  }
+}
+
+/* Ecosystem Section */
+.ecosystemSection {
+  position: relative;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.pillarCard {
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pillarCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(254, 180, 19, 0.3);
+}
+
+.pillarCard h3 {
+  font-size: 24px;
+  margin: 20px 0;
+  font-family: 'Jura', sans-serif;
+}
+
+.pillarCard p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Section Heading */
+.sectionKicker {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8fd3ff;
+  margin: 0 0 20px 0;
+  font-family: 'Jura', sans-serif;
+}
+
+.sectionTitle {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 30px 0;
+  text-transform: uppercase;
+  font-family: 'Jura', sans-serif;
+}
+
+.animationBox {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 44px 104px 0 rgba(254, 180, 19, 0.26);
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 32px;
+  }
+
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .pillarCard {
+    padding: 30px;
+  }
+}

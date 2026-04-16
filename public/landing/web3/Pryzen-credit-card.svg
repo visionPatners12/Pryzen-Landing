@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 430 270" width="430" height="270">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="40%" stop-color="#1a1220"/>
+      <stop offset="100%" stop-color="#2a1a10"/>
+    </linearGradient>
+    <linearGradient id="chipGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEB413"/>
+      <stop offset="50%" stop-color="#D4960F"/>
+      <stop offset="100%" stop-color="#FEB413"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="borderGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEB413" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#FEB413" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FEB413" stop-opacity="0.5"/>
+    </linearGradient>
+    <pattern id="geoPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="20" y2="20" stroke="white" stroke-opacity="0.03" stroke-width="0.5"/>
+      <line x1="20" y1="0" x2="0" y2="20" stroke="white" stroke-opacity="0.02" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="dotPattern" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="0.6" fill="white" fill-opacity="0.04"/>
+    </pattern>
+    <clipPath id="cardClip">
+      <rect width="430" height="270" rx="18" ry="18"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#cardClip)">
+    <!-- Card background -->
+    <rect width="430" height="270" rx="18" ry="18" fill="url(#cardBg)"/>
+    
+    <!-- Geometric texture -->
+    <rect width="430" height="270" fill="url(#geoPattern)"/>
+    <rect width="430" height="270" fill="url(#dotPattern)"/>
+    
+    <!-- Subtle radial glow -->
+    <ellipse cx="340" cy="60" rx="180" ry="120" fill="#FEB413" fill-opacity="0.03"/>
+    <ellipse cx="80" cy="220" rx="140" ry="100" fill="#8B5CF6" fill-opacity="0.06"/>
+
+    <!-- Shine overlay -->
+    <rect width="430" height="270" fill="url(#shine)"/>
+
+    <!-- Gold border -->
+    <rect x="1" y="1" width="428" height="268" rx="17" ry="17" fill="none" stroke="url(#borderGold)" stroke-width="1.2"/>
+
+    <!-- Pryzen Logo -->
+    <image href="/pryzen-logo.png" x="28" y="22" width="42" height="42" opacity="0.95"/>
+
+    <!-- PRYZEN text -->
+    <text x="78" y="50" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="white" letter-spacing="3">PRYZEN</text>
+
+    <!-- EMV Chip -->
+    <g transform="translate(38, 95)">
+      <rect width="45" height="34" rx="5" ry="5" fill="url(#chipGold)" opacity="0.9"/>
+      <line x1="0" y1="12" x2="45" y2="12" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+      <line x1="0" y1="22" x2="45" y2="22" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+      <line x1="15" y1="0" x2="15" y2="34" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+      <line x1="30" y1="0" x2="30" y2="34" stroke="#B8860B" stroke-width="0.8" opacity="0.5"/>
+      <rect x="15" y="12" width="15" height="10" fill="#DAA520" opacity="0.3" rx="1"/>
+    </g>
+
+    <!-- Contactless icon -->
+    <g transform="translate(100, 100)" opacity="0.5">
+      <path d="M0,16 Q4,12 4,8 Q4,4 0,0" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M5,16 Q9,12 9,8 Q9,4 5,0" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M10,16 Q14,12 14,8 Q14,4 10,0" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Card number -->
+    
+
+    <!-- Valid thru -->
+
+    <!-- Cardholder name -->
+    
+
+    <!-- CRYPTO label -->
+    <text x="38" y="238" font-family="'Inter', Arial, sans-serif" font-size="9" fill="#FEB413" opacity="0.6" letter-spacing="2" font-weight="600">DEBIT</text>
+
+    <!-- Visa logo -->
+    <g transform="translate(340, 230)">
+      <text font-family="'Arial', 'Helvetica', sans-serif" font-size="32" font-weight="700" font-style="italic" fill="white" opacity="0.95" letter-spacing="1">VISA</text>
+    </g>
+
+    <!-- Worldwide text -->
+    
+  </g>
+</svg>

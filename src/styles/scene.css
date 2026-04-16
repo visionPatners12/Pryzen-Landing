@@ -1,0 +1,91 @@
+.scene-wrapper {
+  width: min(96vw, 1600px);
+  margin: 24px auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0c111c;
+  overflow: hidden;
+}
+
+.scene-wrapper--compact {
+  width: 100%;
+  margin: 0;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 44px 104px 0 rgba(254, 180, 19, 0.26);
+}
+
+.scene-wrapper--immersive {
+  width: 100vw;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: #0e1425;
+}
+
+.scene-wrapper--immersive .scene-canvas {
+  min-height: 100vh;
+}
+
+.scene-wrapper--immersive .scene-layer--fullscreen {
+  object-fit: cover;
+}
+
+.scene-canvas {
+  position: relative;
+  width: 100%;
+  background: #0e1425;
+}
+
+@media (min-width: 640px) {
+  .scene-canvas {
+    min-height: 320px;
+  }
+}
+
+.scene-layer {
+  position: absolute;
+}
+
+.scene-layer--static {
+  pointer-events: none;
+}
+
+.scene-layer--fullscreen {
+  object-fit: contain;
+}
+
+.scene-layer--placed {
+  object-fit: contain;
+}
+
+.scene-layer--animated {
+  pointer-events: none;
+}
+
+.scene-layer--interactive {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.scene-layer--animated > div {
+  width: 100%;
+  height: 100%;
+}
+
+.scene-ticket-label {
+  position: absolute;
+  transform: translate(-50%, -130%);
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(8, 16, 28, 0.88);
+  border: 1px solid rgba(106, 209, 255, 0.5);
+  color: #dff6ff;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}

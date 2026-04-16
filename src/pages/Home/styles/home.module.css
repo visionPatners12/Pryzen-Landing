@@ -1,0 +1,24 @@
+.homePage {
+  background-color: #0D0A06;
+  font-family: 'Jura', sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.sectionTight {
+  padding: 60px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .sectionTight {
+    padding: 40px 0;
+  }
+}
