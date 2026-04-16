@@ -51,49 +51,69 @@ export default function Preloader({ onReady }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const total = CRITICAL_IMAGES.length + CRITICAL_LOTTIE.length;
+    const allSources = [
+      ...CRITICAL_IMAGES.map((src) => ({ type: "image", url: src })),
+      ...CRITICAL_LOTTIE.map((url) => ({ type: "lottie", url })),
+    ];
+    const total = allSources.length;
     let loaded = 0;
     let failedCount = 0;
+    const failedUrls = [];
     const startTime = Date.now();
-    let timedOut = false;
 
-    const bump = (ok) => {
+    const bump = (url, ok) => {
       loaded++;
-      if (!ok) failedCount++;
+      if (!ok) {
+        failedCount++;
+        failedUrls.push(url);
+      }
       const pct = Math.round((loaded / total) * 100);
       setProgress(pct);
     };
 
-    const imagePromises = CRITICAL_IMAGES.map((src) =>
-      preloadImage(src)
-        .then(() => bump(true))
-        .catch(() => {
-          console.warn(`[Preloader] Image failed to load: ${src}`);
-          bump(false);
-        })
-    );
-
-    const lottiePromises = CRITICAL_LOTTIE.map((url) =>
-      preloadAndCacheLottie(url).then((data) => bump(data !== null))
-    );
-
-    const allAssets = Promise.all([...imagePromises, ...lottiePromises]);
-
-    const safetyTimeout = new Promise((resolve) => {
-      setTimeout(() => {
-        timedOut = true;
-        resolve();
-      }, SAFETY_TIMEOUT_MS);
+    const settled = allSources.map(({ type, url }) => {
+      if (type === "image") {
+        return preloadImage(url)
+          .then(() => bump(url, true))
+          .catch(() => {
+            console.warn(`[Preloader] Image failed: ${url}`);
+            bump(url, false);
+          });
+      }
+      return preloadAndCacheLottie(url).then((data) => {
+        bump(url, data !== null);
+      });
     });
 
-    Promise.race([allAssets, safetyTimeout]).then(() => {
-      if (timedOut) {
-        const missing = total - loaded;
-        if (missing > 0) {
-          console.warn(
-            `[Preloader] Safety timeout reached. ${missing} of ${total} assets still loading (${failedCount} failed). Proceeding anyway.`
-          );
-        }
+    const allSettled = Promise.all(settled);
+
+    let safetyFired = false;
+    const safetyTimer = setTimeout(() => {
+      safetyFired = true;
+      const pending = allSources
+        .filter((s) => !failedUrls.includes(s.url))
+        .map((s) => s.url)
+        .slice(loaded);
+      console.warn(
+        `[Preloader] Safety timeout (${SAFETY_TIMEOUT_MS / 1000}s) reached. ${total - loaded} assets still pending, ${failedCount} failed.`,
+        pending.length > 0 ? `Pending: ${pending.join(", ")}` : ""
+      );
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+      setTimeout(() => {
+        setProgress(100);
+        setExiting(true);
+      }, remaining);
+    }, SAFETY_TIMEOUT_MS);
+
+    allSettled.then(() => {
+      if (safetyFired) return;
+      clearTimeout(safetyTimer);
+
+      if (failedCount > 0) {
+        console.warn(
+          `[Preloader] All assets resolved. ${failedCount} failed: ${failedUrls.join(", ")}`
+        );
       }
 
       const elapsed = Date.now() - startTime;
