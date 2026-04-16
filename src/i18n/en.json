@@ -173,6 +173,9 @@
     "subtitle": "Enter the next era of sports",
     "button": "Get Genesis Access"
   },
+  "common": {
+    "and": "and"
+  },
   "langSwitch": {
     "en": "EN",
     "fr": "FR"

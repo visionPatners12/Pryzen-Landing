@@ -197,7 +197,7 @@ export const PryxPryzeSection = () => {
             <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               {t("pryx.closingText")}{" "}
               <span className="text-[#FEB413] font-medium">{t("pryx.closingUse")}</span>,{" "}
-              <span className="text-[#FEB413] font-medium">{t("pryx.closingDisplay")}</span>, and{" "}
+              <span className="text-[#FEB413] font-medium">{t("pryx.closingDisplay")}</span>, {t("common.and")}{" "}
               <span className="text-[#FEB413] font-medium">{t("pryx.closingGrowWith")}</span>{" "}
               {t("pryx.closingEnd")}
             </p>
@@ -328,7 +328,7 @@ export const PryxPryzeSection = () => {
               <span className="text-[#63B3ED] font-medium">{t("pryze.closingAccess")}</span>,{" "}
               <span className="text-[#63B3ED] font-medium">{t("pryze.closingRewards")}</span>,{" "}
               <span className="text-[#63B3ED] font-medium">{t("pryze.closingDiscounts")}</span>,{" "}
-              <span className="text-[#63B3ED] font-medium">{t("pryze.closingUpgrades")}</span>, and{" "}
+              <span className="text-[#63B3ED] font-medium">{t("pryze.closingUpgrades")}</span>, {t("common.and")}{" "}
               <span className="text-[#63B3ED] font-medium">{t("pryze.closingParticipation")}</span>{" "}
               {t("pryze.closingEnd")}
             </p>

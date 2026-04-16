@@ -173,6 +173,9 @@
     "subtitle": "Entrez dans la nouvelle ère du sport",
     "button": "Obtenir l'Accès Genesis"
   },
+  "common": {
+    "and": "et"
+  },
   "langSwitch": {
     "en": "EN",
     "fr": "FR"
