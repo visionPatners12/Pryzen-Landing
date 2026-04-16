@@ -154,18 +154,42 @@ export default function Preloader({ onReady }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden"
-      style={{ background: "#0D0A06" }}
-      animate={exiting ? { opacity: 0, scale: 1.1 } : { opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      key="preloader"
+      className="fixed inset-0 z-[9999] overflow-hidden"
+      style={{ background: "transparent" }}
     >
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 pointer-events-none"
-        style={{ zIndex: 0 }}
+      <motion.div
+        className="absolute top-0 left-0 w-1/2 h-full"
+        style={{ background: "#0D0A06" }}
+        animate={exiting ? { x: "-100%" } : { x: "0%" }}
+        transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: exiting ? 0.15 : 0 }}
+      />
+      <motion.div
+        className="absolute top-0 right-0 w-1/2 h-full"
+        style={{ background: "#0D0A06" }}
+        animate={exiting ? { x: "100%" } : { x: "0%" }}
+        transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: exiting ? 0.15 : 0 }}
       />
 
-      <div className="relative z-10 flex flex-col items-center">
+      <motion.div
+        className="absolute inset-0"
+        animate={exiting ? { opacity: 0 } : { opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 pointer-events-none"
+          style={{ zIndex: 0 }}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ zIndex: 10 }}
+        animate={exiting ? { opacity: 0, scale: 0.9 } : { opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3, ease: "easeIn" }}
+      >
+        <div className="flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.5, filter: "blur(20px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -251,7 +275,8 @@ export default function Preloader({ onReady }) {
             ))}
           </div>
         </div>
-      </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }

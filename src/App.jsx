@@ -15,15 +15,30 @@ function App() {
       <AnimatePresence>
         {!ready && <Preloader onReady={handleReady} />}
       </AnimatePresence>
-      {ready && (
-        <motion.div
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
+      <div
+        style={{
+          position: ready ? "relative" : "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          opacity: ready ? 1 : 0,
+          pointerEvents: ready ? "auto" : "none",
+          visibility: ready ? "visible" : "hidden",
+        }}
+        aria-hidden={!ready}
+      >
+        {ready ? (
+          <motion.div
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Home />
+          </motion.div>
+        ) : (
           <Home />
-        </motion.div>
-      )}
+        )}
+      </div>
     </>
   );
 }
