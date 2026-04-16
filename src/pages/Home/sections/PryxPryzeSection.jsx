@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   Shield, Sparkles, Users, Rocket, Trophy, Heart,
   Zap, Gift, BarChart3, Crown, Ticket, TrendingUp,
@@ -14,71 +15,8 @@ const PRYX_EXAMPLES = [
   "/landing/pryx-examples/pryx-alt-5-removebg-preview.png",
 ];
 
-const PRYX_BENEFITS = [
-  {
-    icon: Shield,
-    title: "Enhanced Profile Identity",
-    desc: "Display your PRYX directly on your Pryzen profile with exclusive badges, rarity tiers, and visible holder status.",
-  },
-  {
-    icon: Trophy,
-    title: "Sportsbook Advantages",
-    desc: "Unlock betting-related perks such as reduced odds margins, exclusive odds boosts, priority access to special betting campaigns, and limited reward events.",
-  },
-  {
-    icon: Users,
-    title: "Exclusive Community Access",
-    desc: "Join private groups, holder-only prediction rooms, early product tests, and premium community experiences.",
-  },
-  {
-    icon: Rocket,
-    title: "Priority Access to Drops & Features",
-    desc: "Get early access to new Pryzen launches, NFT ticket drops, Team Index campaigns, and selected platform features.",
-  },
-  {
-    icon: Sparkles,
-    title: "Recognition Across the Ecosystem",
-    desc: "PRYX holders receive premium visibility in leaderboards, social feeds, competitions, and community events.",
-  },
-  {
-    icon: Heart,
-    title: "Brand & Culture Ownership",
-    desc: "PRYX connects users to the long-term culture of Pryzen — not as spectators, but as early members of the ecosystem.",
-  },
-];
-
-const PRYZE_BENEFITS = [
-  {
-    icon: Zap,
-    title: "Sportsbook Benefits",
-    desc: "Use PRYZE to unlock reduced odds margins, odds boosts, cashback campaigns, boosted rewards, and access to selected betting promotions.",
-  },
-  {
-    icon: Gift,
-    title: "Fan App Rewards",
-    desc: "Users can earn PRYZE by making predictions, winning competitions, climbing leaderboards, completing quests, and contributing to the sports community.",
-  },
-  {
-    icon: BarChart3,
-    title: "Team Index Access",
-    desc: "PRYZE can be used to access selected Team Index campaigns, reduce platform fees, unlock advanced analytics, or participate in special club-based opportunities.",
-  },
-  {
-    icon: Crown,
-    title: "Premium Features",
-    desc: "Unlock premium tools such as private prediction rooms, advanced stats, exclusive feeds, profile upgrades, and early access to new features.",
-  },
-  {
-    icon: Ticket,
-    title: "NFT & Ticket Utility",
-    desc: "PRYZE can be used for PRYX-related drops, NFT betting ticket features, marketplace fees, and future collectible experiences inside Pryzen.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Ecosystem Incentives",
-    desc: "PRYZE rewards active users, creators, bettors, fans, and early supporters who help grow the Pryzen network.",
-  },
-];
+const PRYX_ICONS = [Shield, Trophy, Users, Rocket, Sparkles, Heart];
+const PRYZE_ICONS = [Zap, Gift, BarChart3, Crown, Ticket, TrendingUp];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -131,19 +69,22 @@ const BenefitCard = ({ icon: Icon, title, desc, index, accent = "gold" }) => {
 };
 
 export const PryxPryzeSection = () => {
+  const { t } = useTranslation();
+  const pryxBenefits = t("pryx.benefits", { returnObjects: true });
+  const pryzeBenefits = t("pryze.benefits", { returnObjects: true });
+  const pryxTags = t("pryx.tags", { returnObjects: true });
+  const pryzeTags = t("pryze.tags", { returnObjects: true });
+
   return (
     <>
       <section id="pryx" className="py-20 w-[90%] sm:w-[85%] lg:w-[80%] max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
-          <BracketLabel className="mb-4">PRYX</BracketLabel>
+          <BracketLabel className="mb-4">{t("pryx.label")}</BracketLabel>
           <GradientHeading className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl">
-            Identity, Status & Real Utility Across Pryzen
+            {t("pryx.heading")}
           </GradientHeading>
           <p className="text-white/60 text-sm sm:text-base max-w-3xl mt-6 leading-relaxed">
-            PRYX is more than a collectible. It is your identity pass inside the
-            Pryzen ecosystem — a visible symbol of status, participation, and
-            access. Holding a PRYX gives users exclusive advantages across the Fan
-            App, Social Sportsbook, and Team Index.
+            {t("pryx.intro")}
           </p>
         </div>
 
@@ -160,17 +101,13 @@ export const PryxPryzeSection = () => {
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start relative z-10">
             <div className="flex-1 min-w-0 flex flex-col">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-                Your Pass Into the Pryzen Ecosystem
+                {t("pryx.cardTitle")}
               </h3>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-6">
-                PRYX is the identity asset of Pryzen. It gives users more than
-                ownership of a visual collectible: it gives them status,
-                recognition, and access across the ecosystem. A PRYX holder is not
-                just displaying an image, but holding a visible mark of
-                participation inside Pryzen.
+                {t("pryx.cardDesc")}
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {["Identity", "Status", "Access", "Rewards"].map((tag) => (
+                {pryxTags.map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1.5 rounded-full text-xs font-medium text-[#FEB413]"
@@ -224,15 +161,15 @@ export const PryxPryzeSection = () => {
         </div>
 
         <div className="flex flex-col items-center text-center mb-10">
-          <BracketLabel className="mb-4">Holder Benefits</BracketLabel>
+          <BracketLabel className="mb-4">{t("pryx.benefitsLabel")}</BracketLabel>
           <GradientHeading className="text-3xl sm:text-4xl lg:text-5xl max-w-3xl">
-            What PRYX Unlocks For You
+            {t("pryx.benefitsHeading")}
           </GradientHeading>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-16">
-          {PRYX_BENEFITS.map((benefit, i) => (
-            <BenefitCard key={benefit.title} {...benefit} index={i} accent="gold" />
+          {pryxBenefits.map((benefit, i) => (
+            <BenefitCard key={i} icon={PRYX_ICONS[i]} title={benefit.title} desc={benefit.desc} index={i} accent="gold" />
           ))}
         </div>
 
@@ -255,14 +192,14 @@ export const PryxPryzeSection = () => {
           />
           <div className="relative z-10">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-              More Than an Image
+              {t("pryx.closingTitle")}
             </h3>
             <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              A PRYX is not just something users own. It is something they{" "}
-              <span className="text-[#FEB413] font-medium">use</span>,{" "}
-              <span className="text-[#FEB413] font-medium">display</span>, and{" "}
-              <span className="text-[#FEB413] font-medium">grow with</span>{" "}
-              inside Pryzen.
+              {t("pryx.closingText")}{" "}
+              <span className="text-[#FEB413] font-medium">{t("pryx.closingUse")}</span>,{" "}
+              <span className="text-[#FEB413] font-medium">{t("pryx.closingDisplay")}</span>, and{" "}
+              <span className="text-[#FEB413] font-medium">{t("pryx.closingGrowWith")}</span>{" "}
+              {t("pryx.closingEnd")}
             </p>
           </div>
         </motion.div>
@@ -274,14 +211,12 @@ export const PryxPryzeSection = () => {
 
       <section id="pryze" className="py-20 w-[90%] sm:w-[85%] lg:w-[80%] max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
-          <BracketLabel className="mb-4">PRYZE</BracketLabel>
+          <BracketLabel className="mb-4">{t("pryze.label")}</BracketLabel>
           <GradientHeading className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl">
-            The Utility Token Powering the Pryzen Ecosystem
+            {t("pryze.heading")}
           </GradientHeading>
           <p className="text-white/60 text-sm sm:text-base max-w-3xl mt-6 leading-relaxed">
-            PRYZE is the utility token of Pryzen. It connects the Fan App,
-            Social Sportsbook, Team Index, and PRYX holders into one shared
-            economy. It is designed to be used inside the platform, not just held.
+            {t("pryze.intro")}
           </p>
         </div>
 
@@ -308,16 +243,13 @@ export const PryxPryzeSection = () => {
           <div className="relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
             <div className="flex-1 min-w-0">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-                One Token, Endless Utility
+                {t("pryze.cardTitle")}
               </h3>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-6">
-                PRYZE is not a speculative asset. It is a functional token
-                designed to power every interaction inside Pryzen — from
-                predictions and rewards to premium features and marketplace
-                access.
+                {t("pryze.cardDesc")}
               </p>
               <div className="flex flex-wrap gap-2">
-                {["Rewards", "Discounts", "Access", "Upgrades", "Participation"].map((tag) => (
+                {pryzeTags.map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1.5 rounded-full text-xs font-medium text-[#63B3ED]"
@@ -358,15 +290,15 @@ export const PryxPryzeSection = () => {
         </div>
 
         <div className="flex flex-col items-center text-center mb-10">
-          <BracketLabel className="mb-4">Token Utility</BracketLabel>
+          <BracketLabel className="mb-4">{t("pryze.benefitsLabel")}</BracketLabel>
           <GradientHeading className="text-3xl sm:text-4xl lg:text-5xl max-w-3xl">
-            What PRYZE Powers For You
+            {t("pryze.benefitsHeading")}
           </GradientHeading>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-16">
-          {PRYZE_BENEFITS.map((benefit, i) => (
-            <BenefitCard key={benefit.title} {...benefit} index={i} accent="blue" />
+          {pryzeBenefits.map((benefit, i) => (
+            <BenefitCard key={i} icon={PRYZE_ICONS[i]} title={benefit.title} desc={benefit.desc} index={i} accent="blue" />
           ))}
         </div>
 
@@ -389,16 +321,16 @@ export const PryxPryzeSection = () => {
           />
           <div className="relative z-10">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-              More Than a Token
+              {t("pryze.closingTitle")}
             </h3>
             <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              PRYZE is the fuel of Pryzen. It powers{" "}
-              <span className="text-[#63B3ED] font-medium">access</span>,{" "}
-              <span className="text-[#63B3ED] font-medium">rewards</span>,{" "}
-              <span className="text-[#63B3ED] font-medium">discounts</span>,{" "}
-              <span className="text-[#63B3ED] font-medium">upgrades</span>, and{" "}
-              <span className="text-[#63B3ED] font-medium">participation</span>{" "}
-              across the entire sports ecosystem.
+              {t("pryze.closingText")}{" "}
+              <span className="text-[#63B3ED] font-medium">{t("pryze.closingAccess")}</span>,{" "}
+              <span className="text-[#63B3ED] font-medium">{t("pryze.closingRewards")}</span>,{" "}
+              <span className="text-[#63B3ED] font-medium">{t("pryze.closingDiscounts")}</span>,{" "}
+              <span className="text-[#63B3ED] font-medium">{t("pryze.closingUpgrades")}</span>, and{" "}
+              <span className="text-[#63B3ED] font-medium">{t("pryze.closingParticipation")}</span>{" "}
+              {t("pryze.closingEnd")}
             </p>
           </div>
         </motion.div>

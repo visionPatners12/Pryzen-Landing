@@ -1,29 +1,50 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { GoldButton } from "../../../components/ui/GoldButton";
 
+const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language?.startsWith("fr") ? "fr" : "en";
+
+  const toggle = () => {
+    const next = currentLang === "en" ? "fr" : "en";
+    i18n.changeLanguage(next);
+  };
+
+  return (
+    <button
+      onClick={toggle}
+      className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/10"
+    >
+      <span className={currentLang === "en" ? "text-[#FEB413]" : "text-white/50"}>EN</span>
+      <span className="text-white/20">/</span>
+      <span className={currentLang === "fr" ? "text-[#FEB413]" : "text-white/50"}>FR</span>
+    </button>
+  );
+};
+
 export const Navigation = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("#hero");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { href: "#fan-app", label: "Fan App" },
-    { href: "#sportbook", label: "Sportbook" },
-    { href: "#team-index", label: "Team Index" },
-    { href: "#pryx", label: "PRYX" },
-    { href: "#pryze", label: "PRYZE" },
+    { href: "#fan-app", label: t("nav.fanApp") },
+    { href: "#sportbook", label: t("nav.sportbook") },
+    { href: "#team-index", label: t("nav.teamIndex") },
+    { href: "#pryx", label: t("nav.pryx") },
+    { href: "#pryze", label: t("nav.pryze") },
   ];
 
-  // Scroll-based background
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scrollspy — track which section is currently in view
   useEffect(() => {
     const observers = [];
     ["hero", "fan-app", "sportbook", "team-index", "pryx", "pryze"].forEach((id) => {
@@ -41,7 +62,6 @@ export const Navigation = () => {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  // Lock body scroll when drawer is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -68,7 +88,6 @@ export const Navigation = () => {
         }`}
       >
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-5">
-          {/* Logo */}
           <a
             href="#hero"
             className="flex items-center justify-center shrink-0 no-underline"
@@ -84,9 +103,8 @@ export const Navigation = () => {
             />
           </a>
 
-          {/* Desktop nav links — hidden on mobile */}
           <nav className="hidden lg:flex items-center gap-0 flex-1 justify-center px-8">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <div key={item.href} className="flex items-center gap-0">
                 <button
                   onClick={() => handleNavClick(item.href)}
@@ -110,21 +128,19 @@ export const Navigation = () => {
             ))}
           </nav>
 
-          {/* Right side */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Built on Chiliz Button — hidden on small screens (it's in the drawer) */}
+            <LanguageSwitcher />
             <GoldButton
               className="hidden sm:flex w-[auto]"
               onClick={() => handleNavClick("#hero")}
               icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" />}
-              children="Built on Chiliz"
+              children={t("nav.builtOnChiliz")}
             />
 
-            {/* Hamburger menu — visible on mobile */}
             <button
               onClick={() => setMenuOpen(true)}
               className="lg:hidden w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center border border-white/10 transition-all shrink-0"
-              aria-label="Open menu"
+              aria-label={t("nav.openMenu")}
             >
               <Menu className="w-5 h-5 text-white/70" />
             </button>
@@ -132,11 +148,9 @@ export const Navigation = () => {
         </div>
       </header>
 
-      {/* ── Mobile drawer ─────────────────────────────────────────────── */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               key="backdrop"
               className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
@@ -147,7 +161,6 @@ export const Navigation = () => {
               onClick={closeMenu}
             />
 
-            {/* Drawer panel */}
             <motion.div
               key="drawer"
               className="fixed top-0 right-0 z-[70] h-full w-[min(320px,85vw)] bg-[#0D0A06] border-l border-white/10 flex flex-col"
@@ -156,7 +169,6 @@ export const Navigation = () => {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
             >
-              {/* Drawer header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
                 <button
                   className="flex items-center gap-2"
@@ -171,16 +183,18 @@ export const Navigation = () => {
                     className="h-7 w-auto"
                   />
                 </button>
-                <button
-                  onClick={closeMenu}
-                  className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center border border-white/10 transition-all"
-                  aria-label="Close menu"
-                >
-                  <X className="w-5 h-5 text-white/70" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <LanguageSwitcher />
+                  <button
+                    onClick={closeMenu}
+                    className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center border border-white/10 transition-all"
+                    aria-label={t("nav.closeMenu")}
+                  >
+                    <X className="w-5 h-5 text-white/70" />
+                  </button>
+                </div>
               </div>
 
-              {/* Nav links */}
               <div className="flex flex-col px-4 py-6 gap-1 flex-1 overflow-y-auto">
                 {navItems.map(({ label, href }, i) => {
                   const isActive = activeLink === href;
@@ -206,14 +220,14 @@ export const Navigation = () => {
                 })}
               </div>
 
-              {/* Footer CTA */}
               <div className="flex flex-col gap-3 px-6 py-6 border-t border-white/10">
                 <GoldButton
                   className="w-full"
                   onClick={() => handleNavClick("#hero")}
                   icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" />}
-                  text="Built on Chiliz"
-                />
+                >
+                  {t("nav.builtOnChiliz")}
+                </GoldButton>
               </div>
             </motion.div>
           </>

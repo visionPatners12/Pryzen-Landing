@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import SceneCanvas from "../../../components/SceneCanvas";
 import { GoldButton, GradientHeading } from "../../../components/ui";
 
@@ -13,6 +14,8 @@ const fadeUp = {
 };
 
 export const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen">
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -53,14 +56,14 @@ export const HeroSection = () => {
           variants={fadeUp}
           className="text-sm tracking-[0.2em] font-medium text-white/70 mb-8"
         >
-          Pryzen Genesis &nbsp;–&nbsp; <span className="font-bold text-white">Built on Chiliz</span>
+          {t("hero.genesis")} &nbsp;–&nbsp; <span className="font-bold text-white">{t("hero.builtOnChiliz")}</span>
         </motion.p>
 
         <motion.div variants={fadeUp}>
           <GradientHeading as="h1" className="leading-[1.1] mb-6"
             style={{ fontSize: "clamp(2.4rem, 6vw, 5rem)" }}
           >
-            The Onchain<br />Architecture of Sports
+            {t("hero.heading1")}<br />{t("hero.heading2")}
           </GradientHeading>
         </motion.div>
 
@@ -68,14 +71,12 @@ export const HeroSection = () => {
           variants={fadeUp}
           className="text-white/60 text-sm sm:text-base leading-relaxed max-w-xl mb-10"
         >
-          Pryzen is building the core onchain layer for sports: a connected ecosystem where
-          fans do not just watch the game, but follow, predict, participate, own, trade, and
-          engage through a new digital sports economy.
+          {t("hero.subtext")}
         </motion.p>
 
         <motion.div variants={fadeUp}>
           <GoldButton href="#ecosystem-overview" className="text-sm sm:text-base w-[253px] text-black text-center justify-center mb-12">
-            Explore the Ecosystem
+            {t("hero.cta")}
           </GoldButton>
         </motion.div>
       </motion.div>

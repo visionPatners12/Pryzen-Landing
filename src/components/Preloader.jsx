@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { staticLayers, animatedLayers } from "../data/sceneLayers";
 import { preloadAndCacheLottie } from "../lib/lottieCache";
 
@@ -15,12 +16,7 @@ const CRITICAL_IMAGES = [
 
 const CRITICAL_LOTTIE = animatedLayers.map((l) => l.animationUrl);
 
-const STEPS = [
-  { label: "Preparing Scene", threshold: 0 },
-  { label: "Loading Animations", threshold: 30 },
-  { label: "Building Experience", threshold: 65 },
-  { label: "Ready", threshold: 95 },
-];
+const STEP_THRESHOLDS = [0, 30, 65, 95];
 
 const MIN_DISPLAY_MS = 3200;
 const TIMEOUT_MS = 10000;
@@ -46,6 +42,8 @@ const particles = Array.from({ length: particleCount }, (_, i) => ({
 }));
 
 export default function Preloader({ onReady }) {
+  const { t } = useTranslation();
+  const stepLabels = t("preloader.steps", { returnObjects: true });
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [done, setDone] = useState(false);
@@ -84,8 +82,8 @@ export default function Preloader({ onReady }) {
   }, []);
 
   useEffect(() => {
-    const idx = [...STEPS].reverse().findIndex((s) => progress >= s.threshold);
-    const stepIdx = idx >= 0 ? STEPS.length - 1 - idx : 0;
+    const idx = [...STEP_THRESHOLDS].reverse().findIndex((threshold) => progress >= threshold);
+    const stepIdx = idx >= 0 ? STEP_THRESHOLDS.length - 1 - idx : 0;
     setCurrentStep(stepIdx);
   }, [progress]);
 
@@ -254,12 +252,12 @@ export default function Preloader({ onReady }) {
               exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
               transition={{ duration: 0.35 }}
             >
-              {STEPS[currentStep].label}
+              {stepLabels[currentStep]}
             </motion.p>
           </AnimatePresence>
 
           <div className="flex gap-2 mt-1">
-            {STEPS.map((_, i) => (
+            {STEP_THRESHOLDS.map((_, i) => (
               <motion.div
                 key={i}
                 className="w-2 h-2 rounded-full"
