@@ -59,10 +59,12 @@ export default function Preloader({ onReady }) {
     let loaded = 0;
     let failedCount = 0;
     const failedUrls = [];
+    const completedUrls = new Set();
     const startTime = Date.now();
 
     const bump = (url, ok) => {
       loaded++;
+      completedUrls.add(url);
       if (!ok) {
         failedCount++;
         failedUrls.push(url);
@@ -91,9 +93,8 @@ export default function Preloader({ onReady }) {
     const safetyTimer = setTimeout(() => {
       safetyFired = true;
       const pending = allSources
-        .filter((s) => !failedUrls.includes(s.url))
-        .map((s) => s.url)
-        .slice(loaded);
+        .filter((s) => !completedUrls.has(s.url))
+        .map((s) => s.url);
       console.warn(
         `[Preloader] Safety timeout (${SAFETY_TIMEOUT_MS / 1000}s) reached. ${total - loaded} assets still pending, ${failedCount} failed.`,
         pending.length > 0 ? `Pending: ${pending.join(", ")}` : ""
