@@ -1,10 +1,10 @@
-import { ExternalLink } from "lucide-react";
 import AnimatedLayer from "../../../components/AnimatedLayer";
 import {
   BracketLabel,
   AnimationCard,
   ArticleNumber,
   GradientHeading,
+  GoldButton,
 } from "../../../components/ui";
 import {
   USDTIcon,
@@ -14,21 +14,6 @@ import {
   USDCIcon,
 } from "../../../components/ui/CryptoIcons";
 import { CARD_GRADIENT_STYLE } from "../../../styles/constants";
-
-const SectionCta = ({ href, children }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2.5 mt-6 px-6 py-3 rounded-xl font-manrope text-sm font-semibold text-black no-underline transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(254,180,19,0.4)]"
-    style={{
-      background: "linear-gradient(135deg, #FEB413 0%, #F59E0B 50%, #D97706 100%)",
-    }}
-  >
-    {children}
-    <ExternalLink className="w-4 h-4" />
-  </a>
-);
 
 const ANIMATION_URLS = {
   sofaGuy:
@@ -132,9 +117,9 @@ export const EcosystemSection = () => (
             alt="Socios wallet"
             className="h-8 w-auto b-3 mt-5"
           />
-          <SectionCta href="https://fan-app.pryzen.io">
+          <GoldButton href="https://fan-app.pryzen.io" className="mt-6 text-sm sm:text-base w-[253px] text-black text-center justify-center">
             Découvrir la Fan App
-          </SectionCta>
+          </GoldButton>
         </div>
         <AnimationCard
           bgImage="/landing/landing_assests/animation_bg.svg"
@@ -210,9 +195,9 @@ export const EcosystemSection = () => (
             l&apos;action, la preuve et la culture fan dans une seule
             experience.
           </p>
-          <SectionCta href="https://sportbook.pryzen.io">
+          <GoldButton href="https://sportbook.pryzen.io" className="mt-6 text-sm sm:text-base w-[253px] text-black text-center justify-center">
             Accéder au Sportbook
-          </SectionCta>
+          </GoldButton>
           <div className="flex flex-col gap-3 mt-6">
             <BettingRail
               assetIcon={<USDTIcon />}
@@ -258,9 +243,9 @@ export const EcosystemSection = () => (
             to give fans a simpler, more understandable way to participate in
             team performance through real prediction markets.
           </p>
-          <SectionCta href="https://team-index.pryzen.io">
+          <GoldButton href="https://team-index.pryzen.io" className="mt-6 mb-6 text-sm sm:text-base w-[253px] text-black text-center justify-center">
             Explorer le Team Index
-          </SectionCta>
+          </GoldButton>
           {/* Fan token icons + settlement info */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <div className="flex items-center gap-2 border border-white/10 py-2 px-3 rounded-3xl shrink-0">
