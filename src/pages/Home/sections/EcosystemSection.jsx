@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import AnimatedLayer from "../../../components/AnimatedLayer";
 import {
   BracketLabel,
@@ -14,6 +15,31 @@ import {
   USDCIcon,
 } from "../../../components/ui/CryptoIcons";
 import { CARD_GRADIENT_STYLE } from "../../../styles/constants";
+
+const headerReveal = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const slideLeft = {
+  hidden: { opacity: 0, x: -80, filter: "blur(8px)" },
+  visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const slideRight = {
+  hidden: { opacity: 0, x: 80, filter: "blur(8px)" },
+  visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9, filter: "blur(6px)" },
+  visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+};
 
 const ANIMATION_URLS = {
   sofaGuy:
@@ -77,19 +103,32 @@ const RouteRow = ({ label, note }) => (
 /* ══════════════════════════════════════════════════ */
 export const EcosystemSection = () => (
   <section id="ecosystem-overview" className="py-20 w-[90%] sm:w-[85%] lg:w-[80%] max-w-[1400px] mx-auto">
-    {/* Section header */}
-    <div className="flex flex-col items-center text-center mb-20">
-      <BracketLabel className="mb-4">3 Main Pillars</BracketLabel>
-      <GradientHeading className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl">
-        What Is Pryzen For Prediction
-      </GradientHeading>
-    </div>
+    <motion.div
+      className="flex flex-col items-center text-center mb-20"
+      variants={headerReveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
+    >
+      <motion.div variants={fadeUp}>
+        <BracketLabel className="mb-4">3 Main Pillars</BracketLabel>
+      </motion.div>
+      <motion.div variants={fadeUp}>
+        <GradientHeading className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl">
+          What Is Pryzen For Prediction
+        </GradientHeading>
+      </motion.div>
+    </motion.div>
 
     {/* ── 01: Fan App ── */}
-    <article
+    <motion.article
       id="fan-app"
       className="mb-28 relative rounded-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
       style={CARD_GRADIENT_STYLE}
+      variants={slideLeft}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
     >
       {/* Row: text (left) + animation (right) */}
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start mb-10">
@@ -160,13 +199,17 @@ export const EcosystemSection = () => (
           ))}
         </div>
       </div>
-    </article>
+    </motion.article>
 
     {/* ── 02: Social Sportbook ── */}
-    <article
+    <motion.article
       id="sportbook"
       className="mb-28 relative rounded-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
       style={CARD_GRADIENT_STYLE}
+      variants={slideRight}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
     >
       <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-16 items-start">
         <AnimationCard
@@ -217,13 +260,17 @@ export const EcosystemSection = () => (
       <p className="text-white text-xs text-center mt-8">
         Betting scope is focused only on these two chains: Polygon and Base.
       </p>
-    </article>
+    </motion.article>
 
     {/* ── 03: Team Index ── */}
-    <article
+    <motion.article
       id="team-index"
       className="mb-8 relative rounded-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
       style={CARD_GRADIENT_STYLE}
+      variants={slideLeft}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
     >
       {/* Top row: text + animation */}
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
@@ -317,6 +364,6 @@ export const EcosystemSection = () => (
         the Chiliz network token. Attached fan tokens (AFC, ACM, BAR, CITY) can
         be used as the wrapped participation path in Team Index.
       </p>
-    </article>
+    </motion.article>
   </section>
 );

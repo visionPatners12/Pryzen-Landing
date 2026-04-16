@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Home } from "./pages/Home/Home";
 import Preloader from "./components/Preloader";
 import "./globals.css";
@@ -11,10 +12,18 @@ function App() {
 
   return (
     <>
-      {!ready && <Preloader onReady={handleReady} />}
-      <div style={{ opacity: ready ? 1 : 0, transition: "opacity 0.5s ease-in-out" }}>
-        <Home />
-      </div>
+      <AnimatePresence>
+        {!ready && <Preloader onReady={handleReady} />}
+      </AnimatePresence>
+      {ready && (
+        <motion.div
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Home />
+        </motion.div>
+      )}
     </>
   );
 }

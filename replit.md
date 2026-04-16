@@ -12,9 +12,14 @@ Pryzen is a sports-tech landing page for the Pryzen ecosystem, serving as a "Web
 
 ## Project Structure
 - `src/main.jsx` - App entry point
-- `src/App.jsx` - Main component (renders Home)
+- `src/App.jsx` - Main component with AnimatePresence preloader/reveal flow
+- `src/lib/lottieCache.js` - Shared Lottie JSON cache with in-flight dedup
+- `src/components/Preloader.jsx` - Cinematic multi-step preloader (particles, glow, step indicators)
+- `src/components/AnimatedLayer.jsx` - Lottie wrapper using shared cache
 - `src/pages/Home/Home.jsx` - Main page layout
-- `src/pages/Home/sections/` - Page sections
+- `src/pages/Home/sections/HeroSection.jsx` - Hero with staggered fade-up entrance
+- `src/pages/Home/sections/EcosystemSection.jsx` - 3 Pillars with scroll-triggered slide animations
+- `src/pages/Home/sections/` - Other page sections
 - `src/components/ui/` - Reusable UI components
 - `public/assets/lottie/` - Lottie animation files
 - `public/landing/landing_assests/` - Images and SVGs

@@ -1,34 +1,29 @@
 import { useEffect, useMemo, useState } from "react";
 import Lottie from "lottie-react";
+import { getLottieFromCache, preloadAndCacheLottie } from "../lib/lottieCache";
 
 function AnimatedLayer({ name, animationUrl, style, className, onMouseEnter, onMouseLeave, preserveAspectRatio = "xMidYMid slice" }) {
-  const [animationData, setAnimationData] = useState(null);
+  const [animationData, setAnimationData] = useState(() => getLottieFromCache(animationUrl));
 
   useEffect(() => {
-    let isMounted = true;
-
-    async function loadAnimation() {
-      if (!animationUrl) {
-        setAnimationData(null);
-        return;
-      }
-
-      const response = await fetch(animationUrl);
-      const data = await response.json();
-      if (isMounted) {
-        setAnimationData(data);
-      }
+    if (!animationUrl) {
+      setAnimationData(null);
+      return;
     }
 
-    loadAnimation().catch(() => {
-      if (isMounted) {
-        setAnimationData(null);
-      }
+    const cached = getLottieFromCache(animationUrl);
+    if (cached) {
+      setAnimationData(cached);
+      return;
+    }
+
+    let isMounted = true;
+
+    preloadAndCacheLottie(animationUrl).then((data) => {
+      if (isMounted) setAnimationData(data);
     });
 
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, [animationUrl]);
 
   const options = useMemo(
@@ -36,16 +31,12 @@ function AnimatedLayer({ name, animationUrl, style, className, onMouseEnter, onM
       animationData,
       autoplay: true,
       loop: true,
-      rendererSettings: {
-        preserveAspectRatio,
-      },
+      rendererSettings: { preserveAspectRatio },
     }),
-    [animationData]
+    [animationData, preserveAspectRatio]
   );
 
-  if (!animationData) {
-    return null;
-  }
+  if (!animationData) return null;
 
   return (
     <div
