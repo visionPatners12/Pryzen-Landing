@@ -178,7 +178,10 @@
   },
   "langSwitch": {
     "en": "EN",
-    "fr": "FR"
+    "fr": "FR",
+    "es": "ES",
+    "pt": "PT",
+    "de": "DE"
   },
   "crypto": {
     "usdt": "USDT",

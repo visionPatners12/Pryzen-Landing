@@ -1,0 +1,199 @@
+{
+  "nav": {
+    "fanApp": "Fan App",
+    "sportbook": "Sportbook",
+    "teamIndex": "Team Index",
+    "pryx": "PRYX",
+    "pryze": "PRYZE",
+    "builtOnChiliz": "Gebaut auf Chiliz",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  },
+  "hero": {
+    "genesis": "Pryzen Genesis",
+    "builtOnChiliz": "Gebaut auf Chiliz",
+    "heading1": "Die Onchain-",
+    "heading2": "Architektur des Sports",
+    "subtext": "Pryzen baut die grundlegende Onchain-Schicht des Sports: ein vernetztes Ökosystem, in dem Fans nicht nur das Spiel sehen, sondern folgen, vorhersagen, teilnehmen, besitzen, handeln und sich in einer neuen digitalen Sportwirtschaft engagieren.",
+    "cta": "Das Ökosystem erkunden"
+  },
+  "ecosystem": {
+    "pillarsLabel": "3 Hauptsäulen",
+    "pillarsHeading": "Was Ist Pryzen für Vorhersagen",
+    "fanAppLabel": "Fan App",
+    "fanAppHeading": "Die Soziale Schicht des Sports",
+    "fanAppDesc1": "Die Fan App ist der Ort, an dem Fans den Sport täglich leben. Nutzer folgen ihren Teams, Ligen und Spielern, finden Highlights, Spiele und Nachrichten, veröffentlichen ihre Analysen, teilen ihre Vorhersagen und bauen ihre Identität in einer sportorientierten Community auf, die für Engagement konzipiert ist, nicht nur für Konsum.",
+    "fanAppDesc2": "Die Fan App ist kostenlos, aber um ein Vorhersagesystem herum aufgebaut: Nutzer können Fan-Token oder CHZ basierend auf ihrem Engagement und ihrer Leistung gewinnen.",
+    "fanAppCta": "Die Fan App entdecken",
+    "fanAppTokenNote": "Gewonnene Fan-Token werden in der Socios-Wallet hinterlegt.",
+    "sportbookLabel": "Social Sportbook",
+    "sportbookHeading": "Die Aktionsschicht des Sports",
+    "sportbookDesc": "Das Sportbook verwandelt Sportwetten in ein soziales und Onchain-Erlebnis. Nutzer platzieren nicht nur eine Wette: Sie können sie teilen, öffentlich verfolgen, in ihrem Profil registrieren und morgen als digitales Asset besitzen. Transparent, immersiv und Community-getrieben vereint es Action, Nachweis und Fan-Kultur in einem einzigen Erlebnis.",
+    "sportbookCta": "Zum Sportbook",
+    "sportbookNote": "Der Wettbereich ist auf diese zwei Chains beschränkt: Polygon und Base.",
+    "teamIndexLabel": "Team Index",
+    "teamIndexHeading": "Die Marktschicht des Fandoms",
+    "teamIndexDesc": "Team Index bietet eine neue Möglichkeit, ein Team durch eine strukturierte Onchain-Strategie auf Polymarket zu unterstützen. Die Mittel der Nutzer werden in USDC gehalten und dann auf ausgewählte Vorhersagemärkte verteilt, die mit diesem Team verbunden sind, wie Spielergebnisse oder langfristige Futures. Anstatt sich auf undurchsichtige Mechanismen zu verlassen, ist das Modell um klare Marktexposition, transparente Positionen und eine stabile Basiseinheit herum konzipiert. Das Ziel ist es, Fans eine einfachere und verständlichere Möglichkeit zu geben, über echte Vorhersagemärkte an der Teamleistung teilzunehmen.",
+    "teamIndexCta": "Den Team Index erkunden",
+    "teamIndexSettlement": "Primäre Abwicklung: Polygon, mit Chiliz",
+    "teamIndexSettlement2": "Wrapped-Zugangspfad",
+    "usdcBase": "USDC ist das Basisasset",
+    "route1Label": "USDC → Team Token",
+    "route1Note": "Route 1: auf Polygon",
+    "or": "- - - ODER - - -",
+    "route2Label": "CHZ + Fan Token → Wrapped auf Chiliz",
+    "route2Note": "Route 2: Chiliz-Ökosystem-Schiene",
+    "bottomNote": "Hinweis: Das <strong>CHZ</strong>-Logo repräsentiert den Chiliz-Netzwerk-Token. Zugehörige Fan-Token (AFC, ACM, BAR, CITY) können als Wrapped-Teilnahmepfad im Team Index verwendet werden."
+  },
+  "benefits": {
+    "label": "Warum Pryzen",
+    "heading": "Die Zukünftige Schnittstelle der Sportkultur Onchain",
+    "items": [
+      "Sportnatives Erlebnis",
+      "In das Produkt integrierte soziale Schicht",
+      "Onchain-Transparenz",
+      "Neue Formen der Fan-Teilnahme",
+      "Premium-immersive UX",
+      "Multi-Produkt-Ökosystem"
+    ]
+  },
+  "howItWorks": {
+    "label": "SO FUNKTIONIERT ES",
+    "heading": "Einfach an der Oberfläche. Intelligent darunter.",
+    "subtitle": "Für den Nutzer ist Team Index einfach:",
+    "step": "SCHRITT",
+    "steps": [
+      {
+        "title": "Wähle Dein Sportuniversum",
+        "desc": "Wähle deine Ligen, Communities und dein Zielteam."
+      },
+      {
+        "title": "Folge, Sage Vorher oder Unterstütze ein Team",
+        "desc": "Engagiere dich mit sozialen Insights, Wettüberzeugung und Marktaktion."
+      },
+      {
+        "title": "Schalte Mehr Nutzen Frei",
+        "desc": "Entwickle deine Identität und deinen Zugang durch PRYX / PRYZE."
+      }
+    ]
+  },
+  "pryx": {
+    "label": "PRYX",
+    "heading": "Identität, Status und Echter Nutzen in Pryzen",
+    "intro": "PRYX ist mehr als ein Sammlerstück. Es ist dein Identitätspass im Pryzen-Ökosystem — ein sichtbares Symbol für Status, Teilnahme und Zugang. Ein PRYX zu halten gibt Nutzern exklusive Vorteile in der Fan App, dem Social Sportsbook und dem Team Index.",
+    "cardTitle": "Dein Pass ins Pryzen-Ökosystem",
+    "cardDesc": "PRYX ist das Identitäts-Asset von Pryzen. Es bietet Nutzern mehr als den Besitz eines visuellen Sammlerstücks: Es gibt ihnen Status, Anerkennung und Zugang im gesamten Ökosystem. Ein PRYX-Inhaber zeigt nicht nur ein Bild, sondern trägt ein sichtbares Zeichen der Teilnahme innerhalb von Pryzen.",
+    "tags": ["Identität", "Status", "Zugang", "Belohnungen"],
+    "benefitsLabel": "Vorteile für Inhaber",
+    "benefitsHeading": "Was PRYX für Dich Freischaltet",
+    "benefits": [
+      {
+        "title": "Verbesserte Profilidentität",
+        "desc": "Zeige dein PRYX direkt in deinem Pryzen-Profil mit exklusiven Abzeichen, Seltenheitsstufen und sichtbarem Inhaberstatus."
+      },
+      {
+        "title": "Sportsbook-Vorteile",
+        "desc": "Schalte wettbezogene Vorteile frei wie reduzierte Quotenmargen, exklusive Quoten-Boosts, Prioritätszugang zu speziellen Kampagnen und limitierte Belohnungsevents."
+      },
+      {
+        "title": "Exklusiver Community-Zugang",
+        "desc": "Tritt privaten Gruppen bei, Inhaber-exklusiven Vorhersageräumen, frühen Produkttests und Premium-Community-Erlebnissen."
+      },
+      {
+        "title": "Prioritätszugang zu Drops & Features",
+        "desc": "Erhalte frühen Zugang zu neuen Pryzen-Launches, NFT-Ticket-Drops, Team-Index-Kampagnen und ausgewählten Plattformfunktionen."
+      },
+      {
+        "title": "Anerkennung im Ökosystem",
+        "desc": "PRYX-Inhaber erhalten Premium-Sichtbarkeit in Ranglisten, sozialen Feeds, Wettbewerben und Community-Events."
+      },
+      {
+        "title": "Marken- und Kulturbesitz",
+        "desc": "PRYX verbindet Nutzer mit der langfristigen Kultur von Pryzen — nicht als Zuschauer, sondern als frühe Mitglieder des Ökosystems."
+      }
+    ],
+    "closingTitle": "Mehr als ein Bild",
+    "closingText": "Ein PRYX ist nicht nur etwas, das Nutzer besitzen. Es ist etwas, das sie",
+    "closingUse": "nutzen",
+    "closingDisplay": "zeigen",
+    "closingGrowWith": "wachsen lassen",
+    "closingEnd": "innerhalb von Pryzen."
+  },
+  "pryze": {
+    "label": "PRYZE",
+    "heading": "Der Utility-Token, der das Pryzen-Ökosystem Antreibt",
+    "intro": "PRYZE ist der Utility-Token von Pryzen. Er verbindet die Fan App, das Social Sportsbook, den Team Index und PRYX-Inhaber in einer gemeinsamen Wirtschaft. Er ist für die Nutzung innerhalb der Plattform konzipiert, nicht nur zum Halten.",
+    "cardTitle": "Ein Token, Endloser Nutzen",
+    "cardDesc": "PRYZE ist kein spekulatives Asset. Es ist ein funktionaler Token, der jede Interaktion innerhalb von Pryzen antreibt — von Vorhersagen und Belohnungen bis hin zu Premium-Funktionen und Marketplace-Zugang.",
+    "tags": ["Belohnungen", "Rabatte", "Zugang", "Upgrades", "Teilnahme"],
+    "benefitsLabel": "Token-Nutzen",
+    "benefitsHeading": "Was PRYZE für Dich Antreibt",
+    "benefits": [
+      {
+        "title": "Sportsbook-Vorteile",
+        "desc": "Nutze PRYZE, um reduzierte Quotenmargen, Quoten-Boosts, Cashback-Kampagnen, erhöhte Belohnungen und Zugang zu ausgewählten Wettaktionen freizuschalten."
+      },
+      {
+        "title": "Fan-App-Belohnungen",
+        "desc": "Nutzer können PRYZE verdienen, indem sie Vorhersagen treffen, Wettbewerbe gewinnen, in Ranglisten aufsteigen, Quests abschließen und zur Sport-Community beitragen."
+      },
+      {
+        "title": "Team-Index-Zugang",
+        "desc": "PRYZE kann verwendet werden, um auf ausgewählte Team-Index-Kampagnen zuzugreifen, Plattformgebühren zu reduzieren, erweiterte Analysen freizuschalten oder an speziellen clubbezogenen Möglichkeiten teilzunehmen."
+      },
+      {
+        "title": "Premium-Funktionen",
+        "desc": "Schalte Premium-Tools frei wie private Vorhersageräume, erweiterte Statistiken, exklusive Feeds, Profil-Upgrades und frühen Zugang zu neuen Funktionen."
+      },
+      {
+        "title": "NFT- & Ticket-Nutzen",
+        "desc": "PRYZE kann für PRYX-bezogene Drops, NFT-Wettticket-Funktionen, Marketplace-Gebühren und zukünftige Sammlererlebnisse innerhalb von Pryzen verwendet werden."
+      },
+      {
+        "title": "Ökosystem-Anreize",
+        "desc": "PRYZE belohnt aktive Nutzer, Ersteller, Wetter, Fans und frühe Unterstützer, die beim Wachstum des Pryzen-Netzwerks helfen."
+      }
+    ],
+    "closingTitle": "Mehr als ein Token",
+    "closingText": "PRYZE ist der Treibstoff von Pryzen. Er treibt an",
+    "closingAccess": "Zugang",
+    "closingRewards": "Belohnungen",
+    "closingDiscounts": "Rabatte",
+    "closingUpgrades": "Upgrades",
+    "closingParticipation": "Teilnahme",
+    "closingEnd": "im gesamten Sport-Ökosystem."
+  },
+  "featured": {
+    "label": "Hervorgehobenes Erlebnis",
+    "heading": "Eine Premium-Lounge, in der Social, Wetten und Team-Märkte Zusammenkommen",
+    "desc": "Pryzen bietet eine cinematische Sports-Tech-Atmosphäre, die digitale Kultur, soziale Teilnahme und Onchain-Überzeugung verbindet."
+  },
+  "cta": {
+    "heading": "Tritt Pryzen Genesis Bei",
+    "subtitle": "Betritt die neue Ära des Sports",
+    "button": "Genesis-Zugang erhalten"
+  },
+  "common": {
+    "and": "und"
+  },
+  "langSwitch": {
+    "en": "EN",
+    "fr": "FR",
+    "es": "ES",
+    "pt": "PT",
+    "de": "DE"
+  },
+  "crypto": {
+    "usdt": "USDT",
+    "weth": "WETH",
+    "polygon": "Polygon",
+    "base": "Base"
+  },
+  "footer": {
+    "copyright": "© {{year}} Team Index. Alle Rechte vorbehalten.",
+    "powered": "Betrieben von Polymarket. Gebaut für Fans."
+  },
+  "preloader": {
+    "steps": ["Szene Vorbereiten", "Animationen Laden", "Erlebnis Aufbauen", "Bereit"]
+  }
+}

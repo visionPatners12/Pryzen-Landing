@@ -1,27 +1,71 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { GoldButton } from "../../../components/ui/GoldButton";
+import { SUPPORTED_LANGS } from "../../../i18n/index";
+
+const resolveCurrentLang = (lang) => {
+  for (const supported of SUPPORTED_LANGS) {
+    if (lang?.startsWith(supported)) return supported;
+  }
+  return "en";
+};
 
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
-  const currentLang = i18n.language?.startsWith("fr") ? "fr" : "en";
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const currentLang = resolveCurrentLang(i18n.language);
 
-  const toggle = () => {
-    const next = currentLang === "en" ? "fr" : "en";
-    i18n.changeLanguage(next);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const selectLang = (lang) => {
+    i18n.changeLanguage(lang);
+    setOpen(false);
   };
 
   return (
-    <button
-      onClick={toggle}
-      className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/10"
-    >
-      <span className={currentLang === "en" ? "text-[#FEB413]" : "text-white/50"}>{t("langSwitch.en")}</span>
-      <span className="text-white/20">/</span>
-      <span className={currentLang === "fr" ? "text-[#FEB413]" : "text-white/50"}>{t("langSwitch.fr")}</span>
-    </button>
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/10"
+      >
+        <span className="text-[#FEB413]">{t(`langSwitch.${currentLang}`)}</span>
+        <ChevronDown className={`w-3 h-3 text-white/50 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15 }}
+            className="absolute right-0 top-full mt-1.5 min-w-[56px] rounded-lg border border-white/10 bg-[#1A1610]/95 backdrop-blur-xl shadow-xl overflow-hidden z-[100]"
+          >
+            {SUPPORTED_LANGS.map((lang) => (
+              <button
+                key={lang}
+                onClick={() => selectLang(lang)}
+                className={`w-full px-3 py-2 text-xs font-semibold tracking-wider uppercase text-left transition-colors ${
+                  lang === currentLang
+                    ? "text-[#FEB413] bg-white/5"
+                    : "text-white/60 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {t(`langSwitch.${lang}`)}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
