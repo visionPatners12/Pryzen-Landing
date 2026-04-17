@@ -13,6 +13,7 @@ const PRYX_EXAMPLES = [
   "/landing/pryx-examples/pryx-4-removebg-preview.png",
   "/landing/pryx-examples/pryx-alt-3-removebg-preview.png",
   "/landing/pryx-examples/pryx-alt-5-removebg-preview.png",
+  "/landing/pryx-examples/pryx-6.png",
 ];
 
 const PRYX_ICONS = [Shield, Trophy, Users, Rocket, Sparkles, Heart];
