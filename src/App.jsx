@@ -22,7 +22,7 @@ function App() {
   const handleReady = useCallback(() => setReady(true), []);
 
   return (
-    <BrowserRouter>
+    <>
       <AnimatePresence>
         {!ready && <Preloader onReady={handleReady} />}
       </AnimatePresence>
@@ -38,19 +38,21 @@ function App() {
         }}
         aria-hidden={!ready}
       >
-        {ready ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
+        <BrowserRouter>
+          {ready ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <AppRoutes />
+            </motion.div>
+          ) : (
             <AppRoutes />
-          </motion.div>
-        ) : (
-          <AppRoutes />
-        )}
+          )}
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 
