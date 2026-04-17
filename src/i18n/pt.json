@@ -227,7 +227,6 @@
       "positioning": "Prova de produto, não um conceito.",
       "groups": [
         {
-          "icon": "✅",
           "title": "Fan App",
           "items": [
             "Acompanhamento de equipas e ligas",
@@ -236,7 +235,6 @@
           ]
         },
         {
-          "icon": "✅",
           "title": "Sportsbook (modo de teste)",
           "items": [
             "Experiência de apostas em cripto",
@@ -244,7 +242,6 @@
           ]
         },
         {
-          "icon": "✅",
           "title": "Team Index (modo de teste)",
           "items": [
             "Os utilizadores podem \"investir\" em equipas com base no desempenho real",
@@ -252,7 +249,6 @@
           ]
         },
         {
-          "icon": "⚠️",
           "title": "Limitações atuais",
           "items": [
             "Ainda não otimizado para escala",
@@ -271,11 +267,11 @@
       "groups": [
         {
           "items": [
-            "🎨 Redesign UX/UI (qualidade consumer-grade)",
-            "⚡ Escalabilidade backend e otimização de performance",
-            "🔐 Infraestrutura blockchain segura",
-            "🧠 Modelos de dados melhorados (previsões e Team Index)",
-            "👤 Onboarding fluido (abstrai a complexidade cripto)"
+            "Redesign UX/UI (qualidade consumer-grade)",
+            "Escalabilidade backend e otimização de performance",
+            "Infraestrutura blockchain segura",
+            "Modelos de dados melhorados (previsões e Team Index)",
+            "Onboarding fluido (abstrai a complexidade cripto)"
           ]
         }
       ]
@@ -288,7 +284,6 @@
       "positioning": "Camada de produto sobre infraestrutura blockchain desportiva existente.",
       "groups": [
         {
-          "icon": "🔗",
           "title": "Integração nativa com o ecossistema Chiliz",
           "items": [
             "Compatibilidade de wallet",
@@ -296,7 +291,6 @@
           ]
         },
         {
-          "icon": "⚽",
           "title": "Camada de utilidade Fan Token",
           "items": [
             "Boosts no sportsbook",
@@ -305,7 +299,6 @@
           ]
         },
         {
-          "icon": "🧩",
           "title": "Posicionamento estratégico",
           "items": [
             "Chiliz = infraestrutura",
@@ -323,12 +316,11 @@
       "groups": [
         {
           "items": [
-            "📱 Lançamento público",
-            "🌍 Estratégia de aquisição: utilizadores cripto-nativos → fãs de desporto → audiência mainstream"
+            "Lançamento público",
+            "Estratégia de aquisição: utilizadores cripto-nativos → fãs de desporto → audiência mainstream"
           ]
         },
         {
-          "icon": "🤝",
           "title": "Parcerias estratégicas",
           "items": [
             "Clubes",
@@ -346,7 +338,6 @@
       "positioning": "Um ecossistema direct-to-fan unificado num único produto.",
       "groups": [
         {
-          "icon": "🎟️",
           "title": "Plataforma de Ticketing Web3",
           "items": [
             "Compra de bilhetes em cripto",
@@ -356,7 +347,6 @@
           "note": "Reinventa o ticketing ligando os fãs diretamente aos eventos."
         },
         {
-          "icon": "🛍️",
           "title": "Marketplace desportiva",
           "items": [
             "Compra de camisolas, merchandising de clube, colecionáveis digitais",
@@ -365,7 +355,6 @@
           "note": "Economia direct-to-fan impulsionada pela blockchain."
         },
         {
-          "icon": "📺",
           "title": "Streaming e Conteúdo Premium",
           "items": [
             "Jogos ao vivo e conteúdo exclusivo",
@@ -374,7 +363,6 @@
           "note": "Conteúdo + engagement unificados numa única plataforma."
         },
         {
-          "icon": "🎮",
           "title": "Experiência Fan Unificada",
           "items": [
             "Ver um jogo",
@@ -394,7 +382,6 @@
       "positioning": "A Pryzen evolui para um ecossistema desportivo full-stack.",
       "groups": [
         {
-          "icon": "🧠",
           "title": "Comparável — mas para o desporto",
           "items": [
             "Spotify → conteúdo",
@@ -410,19 +397,15 @@
       "heading": "Um Caminho Product-First",
       "items": [
         {
-          "icon": "❌",
           "text": "Sem abordagem \"token-first\""
         },
         {
-          "icon": "✅",
           "text": "Estratégia product-first"
         },
         {
-          "icon": "✅",
           "text": "Uso real antes da monetização"
         },
         {
-          "icon": "✅",
           "text": "Expansão apenas após tração de audiência"
         }
       ],

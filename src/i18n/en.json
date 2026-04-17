@@ -227,7 +227,6 @@
       "positioning": "Proof of Product, not a concept.",
       "groups": [
         {
-          "icon": "✅",
           "title": "Fan App",
           "items": [
             "Team & league tracking",
@@ -236,7 +235,6 @@
           ]
         },
         {
-          "icon": "✅",
           "title": "Sportsbook (Test Mode)",
           "items": [
             "Crypto-based betting experience",
@@ -244,7 +242,6 @@
           ]
         },
         {
-          "icon": "✅",
           "title": "Team Index (Test Mode)",
           "items": [
             "Users can \"invest\" in teams based on real performance",
@@ -252,7 +249,6 @@
           ]
         },
         {
-          "icon": "⚠️",
           "title": "Current limitations",
           "items": [
             "Not yet optimized for scale",
@@ -271,11 +267,11 @@
       "groups": [
         {
           "items": [
-            "🎨 UX/UI redesign (consumer-grade quality)",
-            "⚡ Backend scalability & performance optimization",
-            "🔐 Secure blockchain infrastructure",
-            "🧠 Improved data models (predictions & Team Index)",
-            "👤 Seamless onboarding (abstract crypto complexity)"
+            "UX/UI redesign (consumer-grade quality)",
+            "Backend scalability & performance optimization",
+            "Secure blockchain infrastructure",
+            "Improved data models (predictions & Team Index)",
+            "Seamless onboarding (abstract crypto complexity)"
           ]
         }
       ]
@@ -288,7 +284,6 @@
       "positioning": "Product layer on top of existing sports blockchain infrastructure.",
       "groups": [
         {
-          "icon": "🔗",
           "title": "Native integration with Chiliz ecosystem",
           "items": [
             "Wallet compatibility",
@@ -296,7 +291,6 @@
           ]
         },
         {
-          "icon": "⚽",
           "title": "Fan Token Utility Layer",
           "items": [
             "Boosts in sportsbook",
@@ -305,7 +299,6 @@
           ]
         },
         {
-          "icon": "🧩",
           "title": "Strategic positioning",
           "items": [
             "Chiliz = infrastructure",
@@ -323,12 +316,11 @@
       "groups": [
         {
           "items": [
-            "📱 Public launch",
-            "🌍 User acquisition strategy: crypto-native users → sports fans → mainstream audience"
+            "Public launch",
+            "User acquisition strategy: crypto-native users → sports fans → mainstream audience"
           ]
         },
         {
-          "icon": "🤝",
           "title": "Strategic partnerships",
           "items": [
             "Clubs",
@@ -346,7 +338,6 @@
       "positioning": "A direct-to-fan ecosystem unified inside one product.",
       "groups": [
         {
-          "icon": "🎟️",
           "title": "Web3 Ticketing Platform",
           "items": [
             "Buy match tickets using crypto",
@@ -356,7 +347,6 @@
           "note": "Reinvents ticketing by connecting fans directly to events."
         },
         {
-          "icon": "🛍️",
           "title": "Sports Marketplace",
           "items": [
             "Purchase jerseys, club merchandise, digital collectibles",
@@ -365,7 +355,6 @@
           "note": "Direct-to-fan economy powered by blockchain."
         },
         {
-          "icon": "📺",
           "title": "Streaming & Premium Content",
           "items": [
             "Live matches and exclusive content",
@@ -374,7 +363,6 @@
           "note": "Content + engagement unified in one platform."
         },
         {
-          "icon": "🎮",
           "title": "Unified Fan Experience",
           "items": [
             "Watch a match",
@@ -394,7 +382,6 @@
       "positioning": "Pryzen evolves into a full-stack sports ecosystem.",
       "groups": [
         {
-          "icon": "🧠",
           "title": "Comparable — but for sports",
           "items": [
             "Spotify → content",
@@ -410,19 +397,15 @@
       "heading": "A Product-First Path",
       "items": [
         {
-          "icon": "❌",
           "text": "No \"token-first\" approach"
         },
         {
-          "icon": "✅",
           "text": "Product-first strategy"
         },
         {
-          "icon": "✅",
           "text": "Real usage before monetization"
         },
         {
-          "icon": "✅",
           "text": "Expansion only after audience traction"
         }
       ],

@@ -227,7 +227,6 @@
       "positioning": "Produkt-Beweis, kein Konzept.",
       "groups": [
         {
-          "icon": "✅",
           "title": "Fan App",
           "items": [
             "Tracking von Teams und Ligen",
@@ -236,7 +235,6 @@
           ]
         },
         {
-          "icon": "✅",
           "title": "Sportsbook (Testmodus)",
           "items": [
             "Krypto-basiertes Wett-Erlebnis",
@@ -244,7 +242,6 @@
           ]
         },
         {
-          "icon": "✅",
           "title": "Team Index (Testmodus)",
           "items": [
             "Nutzer können in Teams basierend auf realer Leistung „investieren\"",
@@ -252,7 +249,6 @@
           ]
         },
         {
-          "icon": "⚠️",
           "title": "Aktuelle Einschränkungen",
           "items": [
             "Noch nicht für Skalierung optimiert",
@@ -271,11 +267,11 @@
       "groups": [
         {
           "items": [
-            "🎨 UX/UI-Redesign (Consumer-Qualität)",
-            "⚡ Backend-Skalierbarkeit & Performance-Optimierung",
-            "🔐 Sichere Blockchain-Infrastruktur",
-            "🧠 Verbesserte Datenmodelle (Vorhersagen & Team Index)",
-            "👤 Nahtloses Onboarding (abstrahiert Krypto-Komplexität)"
+            "UX/UI-Redesign (Consumer-Qualität)",
+            "Backend-Skalierbarkeit & Performance-Optimierung",
+            "Sichere Blockchain-Infrastruktur",
+            "Verbesserte Datenmodelle (Vorhersagen & Team Index)",
+            "Nahtloses Onboarding (abstrahiert Krypto-Komplexität)"
           ]
         }
       ]
@@ -288,7 +284,6 @@
       "positioning": "Produktebene auf bestehender Sport-Blockchain-Infrastruktur.",
       "groups": [
         {
-          "icon": "🔗",
           "title": "Native Integration in das Chiliz-Ökosystem",
           "items": [
             "Wallet-Kompatibilität",
@@ -296,7 +291,6 @@
           ]
         },
         {
-          "icon": "⚽",
           "title": "Fan-Token-Utility-Layer",
           "items": [
             "Boosts im Sportsbook",
@@ -305,7 +299,6 @@
           ]
         },
         {
-          "icon": "🧩",
           "title": "Strategische Positionierung",
           "items": [
             "Chiliz = Infrastruktur",
@@ -323,12 +316,11 @@
       "groups": [
         {
           "items": [
-            "📱 Öffentlicher Launch",
-            "🌍 Akquisestrategie: Krypto-native Nutzer → Sport-Fans → Mainstream-Publikum"
+            "Öffentlicher Launch",
+            "Akquisestrategie: Krypto-native Nutzer → Sport-Fans → Mainstream-Publikum"
           ]
         },
         {
-          "icon": "🤝",
           "title": "Strategische Partnerschaften",
           "items": [
             "Vereine",
@@ -346,7 +338,6 @@
       "positioning": "Ein Direct-to-Fan-Ökosystem, vereint in einem Produkt.",
       "groups": [
         {
-          "icon": "🎟️",
           "title": "Web3-Ticketing-Plattform",
           "items": [
             "Kauf von Spieltickets mit Krypto",
@@ -356,7 +347,6 @@
           "note": "Erfindet Ticketing neu, indem Fans direkt mit Events verbunden werden."
         },
         {
-          "icon": "🛍️",
           "title": "Sport-Marktplatz",
           "items": [
             "Kauf von Trikots, Vereins-Merchandise, digitalen Sammlerstücken",
@@ -365,7 +355,6 @@
           "note": "Direct-to-Fan-Wirtschaft, angetrieben durch Blockchain."
         },
         {
-          "icon": "📺",
           "title": "Streaming & Premium-Inhalte",
           "items": [
             "Live-Spiele und exklusive Inhalte",
@@ -374,7 +363,6 @@
           "note": "Inhalte + Engagement vereint in einer Plattform."
         },
         {
-          "icon": "🎮",
           "title": "Vereinheitlichte Fan-Erfahrung",
           "items": [
             "Spiel anschauen",
@@ -394,7 +382,6 @@
       "positioning": "Pryzen entwickelt sich zu einem Full-Stack-Sport-Ökosystem.",
       "groups": [
         {
-          "icon": "🧠",
           "title": "Vergleichbar — aber für Sport",
           "items": [
             "Spotify → Inhalte",
@@ -410,19 +397,15 @@
       "heading": "Ein Product-First-Pfad",
       "items": [
         {
-          "icon": "❌",
           "text": "Kein „Token-First\"-Ansatz"
         },
         {
-          "icon": "✅",
           "text": "Product-First-Strategie"
         },
         {
-          "icon": "✅",
           "text": "Echte Nutzung vor Monetarisierung"
         },
         {
-          "icon": "✅",
           "text": "Expansion erst nach Audience-Traktion"
         }
       ],
