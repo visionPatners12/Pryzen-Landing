@@ -7,7 +7,8 @@
     "pryze": "PRYZE",
     "builtOnChiliz": "Construit sur Chiliz",
     "openMenu": "Ouvrir le menu",
-    "closeMenu": "Fermer le menu"
+    "closeMenu": "Fermer le menu",
+    "roadmap": "Roadmap"
   },
   "hero": {
     "genesis": "Pryzen Genesis",
@@ -83,7 +84,12 @@
     "intro": "PRYX est plus qu'un collectible. C'est votre pass identité au sein de l'écosystème Pryzen — un symbole visible de statut, de participation et d'accès. Détenir un PRYX donne aux utilisateurs des avantages exclusifs sur la Fan App, le Social Sportsbook et le Team Index.",
     "cardTitle": "Votre Pass dans l'Écosystème Pryzen",
     "cardDesc": "PRYX est l'actif identitaire de Pryzen. Il offre aux utilisateurs plus que la propriété d'un collectible visuel : il leur donne statut, reconnaissance et accès à travers l'écosystème. Un détenteur de PRYX n'affiche pas simplement une image, mais porte une marque visible de participation dans Pryzen.",
-    "tags": ["Identité", "Statut", "Accès", "Récompenses"],
+    "tags": [
+      "Identité",
+      "Statut",
+      "Accès",
+      "Récompenses"
+    ],
     "benefitsLabel": "Avantages Détenteurs",
     "benefitsHeading": "Ce que PRYX Débloque pour Vous",
     "benefits": [
@@ -125,7 +131,13 @@
     "intro": "PRYZE est le token utilitaire de Pryzen. Il connecte la Fan App, le Social Sportsbook, le Team Index et les détenteurs de PRYX dans une économie partagée. Il est conçu pour être utilisé au sein de la plateforme, pas simplement détenu.",
     "cardTitle": "Un Token, une Utilité Infinie",
     "cardDesc": "PRYZE n'est pas un actif spéculatif. C'est un token fonctionnel conçu pour alimenter chaque interaction au sein de Pryzen — des prédictions et récompenses aux fonctionnalités premium et à l'accès marketplace.",
-    "tags": ["Récompenses", "Réductions", "Accès", "Améliorations", "Participation"],
+    "tags": [
+      "Récompenses",
+      "Réductions",
+      "Accès",
+      "Améliorations",
+      "Participation"
+    ],
     "benefitsLabel": "Utilité du Token",
     "benefitsHeading": "Ce que PRYZE Alimente pour Vous",
     "benefits": [
@@ -194,6 +206,227 @@
     "powered": "Propulsé par Polymarket. Conçu pour les fans."
   },
   "preloader": {
-    "steps": ["Préparation de la Scène", "Chargement des Animations", "Construction de l'Expérience", "Prêt"]
+    "steps": [
+      "Préparation de la Scène",
+      "Chargement des Animations",
+      "Construction de l'Expérience",
+      "Prêt"
+    ]
+  },
+  "roadmap": {
+    "label": "Roadmap",
+    "heading": "Vision Stratégique & Évolutive",
+    "intro": "Pryzen se construit phase par phase : une stratégie product-first où l'usage réel et l'audience passent avant la monétisation et la mécanique du token.",
+    "goalPrefix": "Objectif",
+    "positioningPrefix": "Positionnement",
+    "phase0": {
+      "label": "Phase 0",
+      "tag": "Étape actuelle",
+      "title": "MVP Validé",
+      "goal": "prouver que Pryzen est déjà un produit fonctionnel, pas seulement une idée.",
+      "positioning": "Preuve de produit, pas un concept.",
+      "groups": [
+        {
+          "icon": "✅",
+          "title": "Fan App",
+          "items": [
+            "Suivi des équipes et des ligues",
+            "Fil social",
+            "Prédictions des utilisateurs"
+          ]
+        },
+        {
+          "icon": "✅",
+          "title": "Sportsbook (mode test)",
+          "items": [
+            "Expérience de paris en crypto",
+            "UX déjà fonctionnelle"
+          ]
+        },
+        {
+          "icon": "✅",
+          "title": "Team Index (mode test)",
+          "items": [
+            "Les utilisateurs peuvent « investir » dans des équipes selon leur performance réelle",
+            "Logique d'allocation inspirée de Harry Markowitz"
+          ]
+        },
+        {
+          "icon": "⚠️",
+          "title": "Limites actuelles",
+          "items": [
+            "Pas encore optimisé pour le passage à l'échelle",
+            "Environnement fermé / test",
+            "Pas encore d'intégration avec Chiliz"
+          ]
+        }
+      ]
+    },
+    "phase1": {
+      "label": "Phase 1",
+      "tag": "Financement & Affinement Produit",
+      "title": "Du MVP à un Produit Évolutif",
+      "goal": "transformer le MVP en un produit évolutif et prêt pour le grand public.",
+      "positioning": "Prêt à passer à l'échelle.",
+      "groups": [
+        {
+          "items": [
+            "🎨 Refonte UX/UI (qualité grand public)",
+            "⚡ Scalabilité backend & optimisation des performances",
+            "🔐 Infrastructure blockchain sécurisée",
+            "🧠 Modèles de données améliorés (prédictions & Team Index)",
+            "👤 Onboarding fluide (abstraction de la complexité crypto)"
+          ]
+        }
+      ]
+    },
+    "phase2": {
+      "label": "Phase 2",
+      "tag": "Pivot Stratégique Clé",
+      "title": "Intégration Chiliz",
+      "goal": "ancrer Pryzen dans un écosystème sportif crédible.",
+      "positioning": "Couche produit posée sur une infrastructure blockchain sportive existante.",
+      "groups": [
+        {
+          "icon": "🔗",
+          "title": "Intégration native à l'écosystème Chiliz",
+          "items": [
+            "Compatibilité wallet",
+            "Transactions en fan tokens"
+          ]
+        },
+        {
+          "icon": "⚽",
+          "title": "Couche d'utilité Fan Token",
+          "items": [
+            "Boosts dans le sportsbook",
+            "Récompenses augmentées",
+            "Accès et fonctionnalités exclusifs"
+          ]
+        },
+        {
+          "icon": "🧩",
+          "title": "Positionnement stratégique",
+          "items": [
+            "Chiliz = infrastructure",
+            "Pryzen = couche d'expérience utilisateur"
+          ]
+        }
+      ]
+    },
+    "phase3": {
+      "label": "Phase 3",
+      "tag": "Go-To-Market & Croissance d'Audience",
+      "title": "Construire l'Audience",
+      "goal": "construire une base d'utilisateurs large et engagée.",
+      "positioning": "Pryzen devient l'app de référence pour les fans de sport et les athlètes — pas juste regarder le sport, mais interagir, prédire et s'engager.",
+      "groups": [
+        {
+          "items": [
+            "📱 Lancement public",
+            "🌍 Stratégie d'acquisition : utilisateurs crypto-natifs → fans de sport → grand public"
+          ]
+        },
+        {
+          "icon": "🤝",
+          "title": "Partenariats stratégiques",
+          "items": [
+            "Clubs",
+            "Ligues",
+            "Athlètes & influenceurs"
+          ]
+        }
+      ]
+    },
+    "phase4": {
+      "label": "Phase 4",
+      "tag": "Expansion Produit",
+      "title": "Expansion Après l'Audience",
+      "goal": "monétiser et étendre l'offre sur une base d'utilisateurs existante. Principe clé : audience d'abord, monétisation ensuite.",
+      "positioning": "Un écosystème direct-to-fan unifié dans un seul produit.",
+      "groups": [
+        {
+          "icon": "🎟️",
+          "title": "Plateforme de billetterie Web3",
+          "items": [
+            "Achat de billets en crypto",
+            "Billets NFT : anti-scalping, traçabilité, avantages exclusifs",
+            "Intégration avec PRYX et les fan tokens pour l'accès"
+          ],
+          "note": "Réinvente la billetterie en connectant les fans directement aux événements."
+        },
+        {
+          "icon": "🛍️",
+          "title": "Marketplace sportive",
+          "items": [
+            "Achat de maillots, merchandising de club, collectibles digitaux",
+            "Paiements en crypto et fan tokens"
+          ],
+          "note": "Économie direct-to-fan propulsée par la blockchain."
+        },
+        {
+          "icon": "📺",
+          "title": "Streaming & Contenu Premium",
+          "items": [
+            "Matchs en direct et contenus exclusifs",
+            "Accès via abonnements, tokens ou statut PRYX"
+          ],
+          "note": "Contenu + engagement unifiés sur une seule plateforme."
+        },
+        {
+          "icon": "🎮",
+          "title": "Expérience Fan Unifiée",
+          "items": [
+            "Regarder un match",
+            "Prédire les résultats",
+            "Placer des paris",
+            "Interagir socialement"
+          ],
+          "note": "Tout dans un seul environnement fluide."
+        }
+      ]
+    },
+    "phase5": {
+      "label": "Phase 5",
+      "tag": "Vision Sports Super App",
+      "title": "La Super App du Sport",
+      "goal": "devenir la plateforme par défaut pour l'interaction sportive.",
+      "positioning": "Pryzen évolue vers un écosystème sportif full-stack.",
+      "groups": [
+        {
+          "icon": "🧠",
+          "title": "Comparable — mais pour le sport",
+          "items": [
+            "Spotify → contenu",
+            "Amazon → commerce",
+            "TikTok → social"
+          ],
+          "note": "Combinés en un seul produit pour le sport."
+        }
+      ]
+    },
+    "why": {
+      "label": "Pourquoi Cette Stratégie Marche",
+      "heading": "Une Voie Product-First",
+      "items": [
+        {
+          "icon": "❌",
+          "text": "Pas d'approche « token-first »"
+        },
+        {
+          "icon": "✅",
+          "text": "Stratégie product-first"
+        },
+        {
+          "icon": "✅",
+          "text": "Usage réel avant monétisation"
+        },
+        {
+          "icon": "✅",
+          "text": "Expansion uniquement après traction d'audience"
+        }
+      ],
+      "conclusion": "Cela réduit considérablement le risque d'exécution et augmente la crédibilité."
+    }
   }
 }

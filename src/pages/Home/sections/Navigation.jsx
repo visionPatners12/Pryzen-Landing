@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation } from "react-router-dom";
 import { GoldButton } from "../../../components/ui/GoldButton";
 import { SUPPORTED_LANGS } from "../../../i18n/index";
 
@@ -71,16 +72,20 @@ const LanguageSwitcher = () => {
 
 export const Navigation = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("#hero");
+  const [activeLink, setActiveLink] = useState(isHome ? "#hero" : "/roadmap");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { href: "#fan-app", label: t("nav.fanApp") },
-    { href: "#sportbook", label: t("nav.sportbook") },
-    { href: "#team-index", label: t("nav.teamIndex") },
-    { href: "#pryx", label: t("nav.pryx") },
-    { href: "#pryze", label: t("nav.pryze") },
+    { href: "#fan-app", label: t("nav.fanApp"), kind: "anchor" },
+    { href: "#sportbook", label: t("nav.sportbook"), kind: "anchor" },
+    { href: "#team-index", label: t("nav.teamIndex"), kind: "anchor" },
+    { href: "#pryx", label: t("nav.pryx"), kind: "anchor" },
+    { href: "#pryze", label: t("nav.pryze"), kind: "anchor" },
+    { href: "/roadmap", label: t("nav.roadmap"), kind: "route" },
   ];
 
   useEffect(() => {
@@ -90,6 +95,10 @@ export const Navigation = () => {
   }, []);
 
   useEffect(() => {
+    if (!isHome) {
+      setActiveLink("/roadmap");
+      return;
+    }
     const observers = [];
     ["hero", "fan-app", "sportbook", "team-index", "pryx", "pryze"].forEach((id) => {
       const el = document.getElementById(id);
@@ -104,7 +113,20 @@ export const Navigation = () => {
       observers.push(obs);
     });
     return () => observers.forEach((o) => o.disconnect());
-  }, []);
+  }, [isHome, location.pathname]);
+
+  useEffect(() => {
+    if (!isHome) return;
+    const hash = location.hash;
+    if (!hash) return;
+    const id = hash.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  }, [isHome, location.pathname, location.hash]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -113,13 +135,42 @@ export const Navigation = () => {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const handleNavClick = (href) => {
+  const handleNavClick = (href, kind = "anchor") => {
     setActiveLink(href);
+    closeMenu();
+
+    if (kind === "route") {
+      if (location.pathname !== href) {
+        navigate(href);
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+      return;
+    }
+
+    if (href === "#hero" && !isHome) {
+      navigate("/");
+      return;
+    }
+
+    if (!isHome) {
+      navigate(`/${href}`);
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
     closeMenu();
+    if (!isHome) {
+      navigate("/");
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -133,12 +184,9 @@ export const Navigation = () => {
       >
         <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-5">
           <a
-            href="#hero"
+            href="/"
             className="flex items-center justify-center shrink-0 no-underline"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#hero");
-            }}
+            onClick={handleLogoClick}
           >
             <img 
               src="/landing/landing_assests/nav_logo.svg" 
@@ -151,7 +199,7 @@ export const Navigation = () => {
             {navItems.map((item) => (
               <div key={item.href} className="flex items-center gap-0">
                 <button
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={() => handleNavClick(item.href, item.kind)}
                   className={`relative inline-flex items-center justify-center font-manrope text-[18px] font-medium px-6 py-2.5 rounded-lg transition-colors pb-1 whitespace-nowrap ${
                     activeLink === item.href
                       ? "text-white"
@@ -176,7 +224,7 @@ export const Navigation = () => {
             <LanguageSwitcher />
             <GoldButton
               className="hidden sm:flex w-[auto]"
-              onClick={() => handleNavClick("#hero")}
+              onClick={() => handleNavClick("#hero", "anchor")}
               icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" />}
               children={t("nav.builtOnChiliz")}
             />
@@ -217,8 +265,12 @@ export const Navigation = () => {
                 <button
                   className="flex items-center gap-2"
                   onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
                     closeMenu();
+                    if (!isHome) {
+                      navigate("/");
+                    } else {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
                   }}
                 >
                   <img
@@ -240,7 +292,7 @@ export const Navigation = () => {
               </div>
 
               <div className="flex flex-col px-4 py-6 gap-1 flex-1 overflow-y-auto">
-                {navItems.map(({ label, href }, i) => {
+                {navItems.map(({ label, href, kind }, i) => {
                   const isActive = activeLink === href;
                   return (
                     <motion.button
@@ -248,7 +300,7 @@ export const Navigation = () => {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.05 + 0.1, duration: 0.22 }}
-                      onClick={() => handleNavClick(href)}
+                      onClick={() => handleNavClick(href, kind)}
                       className={`flex items-center gap-3 w-full text-left px-4 py-3.5 rounded-xl font-manrope text-sm font-medium transition-all ${
                         isActive
                           ? "bg-white/8 text-white"
@@ -267,7 +319,7 @@ export const Navigation = () => {
               <div className="flex flex-col gap-3 px-6 py-6 border-t border-white/10">
                 <GoldButton
                   className="w-full"
-                  onClick={() => handleNavClick("#hero")}
+                  onClick={() => handleNavClick("#hero", "anchor")}
                   icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" />}
                 >
                   {t("nav.builtOnChiliz")}
