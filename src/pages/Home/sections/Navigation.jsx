@@ -230,8 +230,8 @@ export const Navigation = () => {
             <GoldButton
               className="hidden sm:flex w-[auto]"
               onClick={() => handleNavClick("#hero", "anchor")}
-              icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" loading="eager" decoding="async" />}
-              children={t("nav.builtOnChiliz")}
+              icon={<img src="/landing/landing_assests/base-logo.svg" alt="Base" className="w-6 h-6 object-contain" loading="eager" decoding="async" />}
+              children={t("nav.builtOnBase")}
             />
 
             <button
@@ -327,9 +327,9 @@ export const Navigation = () => {
                 <GoldButton
                   className="w-full"
                   onClick={() => handleNavClick("#hero", "anchor")}
-                  icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" loading="lazy" decoding="async" />}
+                  icon={<img src="/landing/landing_assests/base-logo.svg" alt="Base" className="w-6 h-6 object-contain" loading="lazy" decoding="async" />}
                 >
-                  {t("nav.builtOnChiliz")}
+                  {t("nav.builtOnBase")}
                 </GoldButton>
               </div>
             </motion.div>

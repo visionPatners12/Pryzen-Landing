@@ -1,7 +1,7 @@
 # Pryzen - The Onchain Architecture of Sports
 
 ## Overview
-Pryzen is a sports-tech landing page for the Pryzen ecosystem, serving as a "Web3 Home of Sports" built on the Chiliz blockchain. It showcases a connected ecosystem for fans to follow, predict, participate, own, and trade in a new digital sports economy.
+Pryzen is a sports-tech landing page for the Pryzen ecosystem, serving as a "Web3 Home of Sports" built on Base. It showcases a connected ecosystem for fans to follow, predict, participate, own, and trade in a new digital sports economy.
 
 ## Tech Stack
 - **Framework:** React 18

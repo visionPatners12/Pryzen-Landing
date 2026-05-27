@@ -5,14 +5,14 @@
     "teamIndex": "Team Index",
     "pryx": "PRYX",
     "pryze": "PRYZE",
-    "builtOnChiliz": "Construído em Chiliz",
+    "builtOnBase": "Construído em Base",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
     "roadmap": "Roadmap"
   },
   "hero": {
     "genesis": "Pryzen Genesis",
-    "builtOnChiliz": "Construído em Chiliz",
+    "builtOnBase": "Construído em Base",
     "heading1": "A Arquitetura",
     "heading2": "Onchain do Esporte",
     "subtext": "Pryzen está construindo a camada onchain fundamental do esporte: um ecossistema conectado onde os fãs não apenas assistem ao jogo, mas acompanham, preveem, participam, possuem, negociam e se envolvem em uma nova economia esportiva digital.",
@@ -24,9 +24,9 @@
     "fanAppLabel": "Fan App",
     "fanAppHeading": "A Camada Social do Esporte",
     "fanAppDesc1": "A Fan App é onde os fãs vivem o esporte todos os dias. Os usuários acompanham seus times, ligas e jogadores, encontram destaques, partidas e notícias, publicam suas análises, compartilham suas previsões e constroem sua identidade em uma comunidade esportiva projetada para engajamento, não apenas para consumo.",
-    "fanAppDesc2": "A Fan App é gratuita, mas construída em torno de um sistema de previsão: os usuários podem ganhar fan tokens ou CHZ com base em seu engajamento e desempenho.",
+    "fanAppDesc2": "A Fan App é gratuita, mas construída em torno de um sistema de previsão: os usuários podem ganhar fan tokens ou recompensas Base com base em seu engajamento e desempenho.",
     "fanAppCta": "Descobrir a Fan App",
-    "fanAppTokenNote": "Os fan tokens ganhos são depositados na carteira Socios.",
+    "fanAppTokenNote": "Os fan tokens ganhos são depositados na Base.",
     "sportbookLabel": "Social Sportbook",
     "sportbookHeading": "A Camada de Ação do Esporte",
     "sportbookDesc": "O Sportbook transforma as apostas esportivas em uma experiência social e onchain. Os usuários não apenas fazem uma aposta: podem compartilhá-la, segui-la publicamente, registrá-la em seu perfil e amanhã possuí-la como um ativo digital. Transparente, imersivo e comunitário, reúne a ação, a prova e a cultura de fãs em uma única experiência.",
@@ -36,15 +36,15 @@
     "teamIndexHeading": "A Camada de Mercado do Fandom",
     "teamIndexDesc": "Team Index oferece uma nova forma de apoiar um time através de uma estratégia onchain estruturada construída sobre Polymarket. Os fundos dos usuários são mantidos em USDC, depois alocados em mercados de previsão selecionados vinculados a esse time, como resultados de partidas ou futuros de longo prazo. Em vez de depender de mecânicas opacas, o modelo é projetado em torno de exposição clara ao mercado, posições transparentes e uma unidade base estável. O objetivo é dar aos fãs uma forma mais simples e compreensível de participar no desempenho do time através de mercados de previsão reais.",
     "teamIndexCta": "Explorar o Team Index",
-    "teamIndexSettlement": "Liquidação principal: Polygon, com Chiliz",
+    "teamIndexSettlement": "Liquidação principal: Polygon, com Base",
     "teamIndexSettlement2": "caminho de acesso wrapped",
     "usdcBase": "USDC é o ativo base",
     "route1Label": "USDC → Team Token",
     "route1Note": "Rota 1: na Polygon",
     "or": "- - - OU - - -",
-    "route2Label": "CHZ + Fan Token → Wrapped na Chiliz",
-    "route2Note": "Rota 2: via ecossistema Chiliz",
-    "bottomNote": "Nota: o logo <strong>CHZ</strong> representa o token da rede Chiliz. Os fan tokens associados (AFC, ACM, BAR, CITY) podem ser usados como o caminho de participação wrapped no Team Index."
+    "route2Label": "USDC + Fan Token → Wrapped na Base",
+    "route2Note": "Rota 2: via ecossistema Base",
+    "bottomNote": "Nota: o logo <strong>Base</strong> representa a rede Base. Os fan tokens associados (AFC, ACM, BAR, CITY) podem ser usados como o caminho de participação wrapped no Team Index."
   },
   "benefits": {
     "label": "Por Que Pryzen",
@@ -253,7 +253,7 @@
           "items": [
             "Ainda não otimizado para escala",
             "Ambiente fechado / de teste",
-            "Ainda sem integração com a Chiliz"
+            "Ainda sem integração com a Base"
           ]
         }
       ]
@@ -279,12 +279,12 @@
     "phase2": {
       "label": "Fase 2",
       "tag": "Pivot Estratégico Chave",
-      "title": "Integração com a Chiliz",
+      "title": "Integração com a Base",
       "goal": "ancorar a Pryzen num ecossistema desportivo credível.",
       "positioning": "Camada de produto sobre infraestrutura blockchain desportiva existente.",
       "groups": [
         {
-          "title": "Integração nativa com o ecossistema Chiliz",
+          "title": "Integração nativa com o ecossistema Base",
           "items": [
             "Compatibilidade de wallet",
             "Transações em fan tokens"
@@ -301,7 +301,7 @@
         {
           "title": "Posicionamento estratégico",
           "items": [
-            "Chiliz = infraestrutura",
+            "Base = infraestrutura",
             "Pryzen = camada de experiência do utilizador"
           ]
         }

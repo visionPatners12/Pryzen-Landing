@@ -65,7 +65,7 @@ export const HeroSection = () => {
           variants={fadeUp}
           className="text-sm tracking-[0.2em] font-medium text-white/70 mb-8"
         >
-          {t("hero.genesis")} &nbsp;–&nbsp; <span className="font-bold text-white">{t("hero.builtOnChiliz")}</span>
+          {t("hero.genesis")} &nbsp;–&nbsp; <span className="font-bold text-white">{t("hero.builtOnBase")}</span>
         </motion.p>
 
         <motion.div variants={fadeUp}>

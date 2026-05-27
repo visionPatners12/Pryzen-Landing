@@ -43,13 +43,31 @@ const ANIMATION_URLS = {
     "/assets/lottie/sofa-guy-1/animations/2a79a033-bc14-47c8-92df-c6b0acd02dcb.json",
   ticket:
     "/assets/lottie/ticket-with-glow/animations/88ada3eb-4d73-407c-9f16-f824f85818ab.json",
-  chiliz:
-    "/assets/lottie/chiliz/animations/10dc854d-a108-497f-ba5e-33d2c822f63c.json",
 };
 
-const FAN_APP_LOGOS = [
-  "chz", "afc", "acm", "arg", "asm", "asr", "atm", "avl", "bar",
+const FAN_APP_LOGO_IDS = [
+  "afc", "acm", "arg", "asm", "asr", "atm", "avl", "bar",
   "benfica", "city", "dzg", "gal", "inter", "ita", "juv", "lufc", "nap", "psg", "spurs",
+];
+
+const FAN_APP_LOGOS = [
+  { id: "base", src: "/landing/landing_assests/base-logo.svg", alt: "Base" },
+  ...FAN_APP_LOGO_IDS.map((logo) => ({
+    id: logo,
+    src: `/landing/fan-app-logos/${logo}.png`,
+    alt: `${logo.toUpperCase()} fan token`,
+  })),
+];
+
+const TEAM_INDEX_TOKEN_IDS = ["afc", "acm", "bar", "city"];
+
+const TEAM_INDEX_TOKENS = [
+  { id: "base", src: "/landing/landing_assests/base-logo.svg", alt: "Base" },
+  ...TEAM_INDEX_TOKEN_IDS.map((token) => ({
+    id: token,
+    src: `/landing/fan-tokens/${token}.png`,
+    alt: token.toUpperCase(),
+  })),
 ];
 
 const BettingRail = ({ assetIcon, assetName, chainIcon, chainName }) => (
@@ -120,9 +138,9 @@ export const EcosystemSection = () => {
               {t("ecosystem.fanAppDesc2")}
             </p>
             <img
-              src="/landing/landing_assests/socios.svg"
-              alt="Socios wallet"
-              className="h-8 w-auto b-3 mt-5"
+              src="/landing/landing_assests/base-logo.svg"
+              alt="Base"
+              className="h-8 w-8 b-3 mt-5"
               loading="lazy"
               decoding="async"
             />
@@ -152,7 +170,7 @@ export const EcosystemSection = () => {
           <div className="w-full sm:w-[80%] lg:w-[65%] flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 relative z-[1]">
             {FAN_APP_LOGOS.map((logo) => (
               <div
-                key={logo}
+                key={logo.id}
                 className="w-10 h-10 sm:w-12 sm:h-12 md:w-[52px] md:h-[52px] lg:w-[60px] lg:h-[60px] rounded-full flex items-center justify-center shrink-0"
                 style={{
                   background: "rgba(255,255,255,0.06)",
@@ -161,8 +179,8 @@ export const EcosystemSection = () => {
                 }}
               >
                 <img
-                  src={`/landing/fan-app-logos/${logo}.png`}
-                  alt={`${logo.toUpperCase()} fan token`}
+                  src={logo.src}
+                  alt={logo.alt}
                   className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full object-contain"
                   loading="lazy"
                   decoding="async"
@@ -252,11 +270,11 @@ export const EcosystemSection = () => {
             </GoldButton>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <div className="flex items-center gap-2 border border-white/10 py-2 px-3 rounded-3xl shrink-0">
-                {["chz", "afc", "acm", "bar", "city"].map((tk) => (
+                {TEAM_INDEX_TOKENS.map((token) => (
                   <img
-                    key={tk}
-                    src={`/landing/fan-tokens/${tk}.png`}
-                    alt={tk.toUpperCase()}
+                    key={token.id}
+                    src={token.src}
+                    alt={token.alt}
                     className="w-[28px] h-[28px] rounded-full object-contain"
                     loading="lazy"
                     decoding="async"
@@ -279,11 +297,11 @@ export const EcosystemSection = () => {
             style={{ minHeight: "unset" }}
           >
             <AnimatedLayer
-              name="Chiliz"
-              animationUrl={ANIMATION_URLS.chiliz}
-              posterSrc={LOTTIE_POSTERS.chiliz}
+              name="Base"
+              loadMode="static"
+              posterSrc={LOTTIE_POSTERS.base}
               style={{
-                width: "90%",
+                width: "38%",
                 position: "relative",
                 top: "50%",
                 left: "50%",

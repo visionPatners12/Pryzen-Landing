@@ -498,8 +498,8 @@ html {
 
 
 
-/* Built on Chiliz Button */
-.pryzen-built-on-chiliz {
+/* Built on Base Button */
+.pryzen-built-on-base {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -520,7 +520,7 @@ html {
   cursor: pointer;
 }
 
-.pryzen-built-on-chiliz .btn-bg {
+.pryzen-built-on-base .btn-bg {
   position: absolute;
   top: 4px;
   left: -56px;
@@ -531,7 +531,7 @@ html {
   z-index: -1;
 }
 
-.pryzen-built-on-chiliz .btn-content {
+.pryzen-built-on-base .btn-content {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -539,7 +539,7 @@ html {
   z-index: 1;
 }
 
-.pryzen-built-on-chiliz .chz-icon {
+.pryzen-built-on-base .base-icon {
   width: 24px;
   height: 24px;
   object-fit: contain;
@@ -875,7 +875,7 @@ html {
   margin: 0 auto;
 }
 
-.pryzen-socios-block {
+.pryzen-base-block {
   margin-top: 12px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -883,7 +883,7 @@ html {
   padding: 10px 12px;
 }
 
-.pryzen-socios-block img {
+.pryzen-base-block img {
   width: min(320px, 100%);
   display: block;
 }
