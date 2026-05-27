@@ -25,7 +25,13 @@ const StepCard = ({ n, icon, title, desc, stepLabel }) => (
       >
         {n}
       </span>
-      <img src={icon} alt="" className="w-[36px] h-[36px] object-contain" />
+      <img
+        src={icon}
+        alt=""
+        className="w-[36px] h-[36px] object-contain"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
     <h3
       className="text-white font-bold uppercase tracking-[0.15em] mb-3"

@@ -27,6 +27,9 @@ export const HeroSection = () => {
         alt=""
         aria-hidden
         className="absolute top-0 left-0 h-full w-auto object-cover z-[1] pointer-events-none opacity-80"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
       />
 
       <img
@@ -34,6 +37,9 @@ export const HeroSection = () => {
         alt=""
         aria-hidden
         className="absolute inset-0 w-full h-full object-cover z-[2] pointer-events-none opacity-70"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
       />
 
       <img
@@ -41,6 +47,9 @@ export const HeroSection = () => {
         alt=""
         aria-hidden
         className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full object-cover z-[3] pointer-events-none opacity-90"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
       />
 
       <div className="absolute inset-0 z-[4] bg-gradient-to-b from-black/30 via-black/45 to-[#0D0A06]/85 pointer-events-none" />

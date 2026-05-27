@@ -192,6 +192,9 @@ export const Navigation = () => {
               src="/landing/landing_assests/nav_logo.svg" 
               alt="Pryzen Logo"
               className="h-10 w-auto transition-filter duration-300 hover:brightness-110"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
             />
           </a>
 
@@ -213,6 +216,8 @@ export const Navigation = () => {
                       alt=""
                       aria-hidden
                       className="absolute bottom-[2px] left-1/2 -translate-x-1/2 w-[calc(100%-10px)] h-2.5 object-contain opacity-100 drop-shadow-[0_2px_8px_rgba(254,180,19,0.5)] pointer-events-none"
+                      loading="lazy"
+                      decoding="async"
                     />
                   )}
                 </button>
@@ -225,7 +230,7 @@ export const Navigation = () => {
             <GoldButton
               className="hidden sm:flex w-[auto]"
               onClick={() => handleNavClick("#hero", "anchor")}
-              icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" />}
+              icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" loading="eager" decoding="async" />}
               children={t("nav.builtOnChiliz")}
             />
 
@@ -277,6 +282,8 @@ export const Navigation = () => {
                     src="/landing/landing_assests/nav_logo.svg"
                     alt="Pryzen Logo"
                     className="h-7 w-auto"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </button>
                 <div className="flex items-center gap-2">
@@ -320,7 +327,7 @@ export const Navigation = () => {
                 <GoldButton
                   className="w-full"
                   onClick={() => handleNavClick("#hero", "anchor")}
-                  icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" />}
+                  icon={<img src="/landing/landing_assests/chz.png" alt="Chiliz" className="w-6 h-6 object-contain" loading="lazy" decoding="async" />}
                 >
                   {t("nav.builtOnChiliz")}
                 </GoldButton>

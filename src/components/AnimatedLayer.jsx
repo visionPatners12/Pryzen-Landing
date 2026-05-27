@@ -1,51 +1,188 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Lottie from "lottie-react";
-import { getLottieFromCache, preloadAndCacheLottie } from "../lib/lottieCache";
+import { preloadLottieAssets, preloadLottieJson } from "../lib/lottieCache";
 
-function AnimatedLayer({ name, animationUrl, style, className, onMouseEnter, onMouseLeave, preserveAspectRatio = "xMidYMid slice" }) {
-  const [animationData, setAnimationData] = useState(() => getLottieFromCache(animationUrl));
+function usePrefersStaticAnimation() {
+  const getPreference = () => {
+    if (typeof window === "undefined") return false;
+
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const saveData = navigator.connection?.saveData === true;
+    return Boolean(reduceMotion || saveData);
+  };
+
+  const [prefersStatic, setPrefersStatic] = useState(getPreference);
 
   useEffect(() => {
-    if (!animationUrl) {
-      setAnimationData(null);
-      return;
+    if (typeof window === "undefined") return undefined;
+
+    const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersStatic(getPreference());
+
+    motionQuery?.addEventListener?.("change", updatePreference);
+    motionQuery?.addListener?.(updatePreference);
+
+    return () => {
+      motionQuery?.removeEventListener?.("change", updatePreference);
+      motionQuery?.removeListener?.(updatePreference);
+    };
+  }, []);
+
+  return prefersStatic;
+}
+
+function AnimatedLayer({
+  name,
+  animationUrl,
+  style,
+  className,
+  onMouseEnter,
+  onMouseLeave,
+  preserveAspectRatio = "xMidYMid slice",
+  loadMode = "lazy",
+  posterSrc,
+  rootMargin = "320px",
+  pauseWhenHidden = true,
+  fallbackClassName,
+  preloadFrameCount = 12,
+}) {
+  const wrapperRef = useRef(null);
+  const lottieRef = useRef(null);
+  const prefersStatic = usePrefersStaticAnimation();
+  const [animationData, setAnimationData] = useState(null);
+  const [loadFailed, setLoadFailed] = useState(false);
+  const [isInView, setIsInView] = useState(loadMode === "eager");
+  const [hasEnteredView, setHasEnteredView] = useState(loadMode === "eager");
+
+  useEffect(() => {
+    if (loadMode === "static") return undefined;
+
+    if (loadMode === "eager") {
+      setIsInView(true);
+      setHasEnteredView(true);
+      return undefined;
     }
 
-    const cached = getLottieFromCache(animationUrl);
-    if (cached) {
-      setAnimationData(cached);
-      return;
+    const node = wrapperRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") {
+      setIsInView(true);
+      setHasEnteredView(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+        if (entry.isIntersecting) setHasEnteredView(true);
+      },
+      { rootMargin, threshold: 0.01 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [loadMode, rootMargin]);
+
+  useEffect(() => {
+    if (!animationUrl || prefersStatic || loadMode === "static" || !hasEnteredView) {
+      return undefined;
     }
 
     let isMounted = true;
+    setLoadFailed(false);
 
-    preloadAndCacheLottie(animationUrl).then((data) => {
-      if (isMounted) setAnimationData(data);
-    });
+    async function loadAnimation() {
+      const data = await preloadLottieJson(animationUrl);
 
-    return () => { isMounted = false; };
-  }, [animationUrl]);
+      if (!isMounted) return;
+      if (!data) {
+        setLoadFailed(true);
+        return;
+      }
+
+      const assetResult =
+        preloadFrameCount === 0
+          ? { ok: true }
+          : await preloadLottieAssets(animationUrl, {
+              animationData: data,
+              count: preloadFrameCount,
+            });
+
+      if (!isMounted) return;
+
+      if (!assetResult.ok) {
+        setLoadFailed(true);
+        return;
+      }
+
+      setAnimationData(data);
+    }
+
+    loadAnimation();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [animationUrl, hasEnteredView, loadMode, prefersStatic, preloadFrameCount]);
+
+  useEffect(() => {
+    if (!pauseWhenHidden || !animationData || !lottieRef.current) return undefined;
+
+    const updatePlayback = () => {
+      if (!lottieRef.current) return;
+
+      if (!isInView || document.hidden) {
+        lottieRef.current.pause();
+      } else {
+        lottieRef.current.play();
+      }
+    };
+
+    updatePlayback();
+    document.addEventListener("visibilitychange", updatePlayback);
+
+    return () => {
+      document.removeEventListener("visibilitychange", updatePlayback);
+    };
+  }, [animationData, isInView, pauseWhenHidden]);
 
   const options = useMemo(
     () => ({
       animationData,
-      autoplay: true,
+      autoplay: isInView,
       loop: true,
       rendererSettings: { preserveAspectRatio },
     }),
-    [animationData, preserveAspectRatio]
+    [animationData, isInView, preserveAspectRatio]
   );
 
-  if (!animationData) return null;
+  const showPoster = posterSrc && (loadMode === "static" || !animationData || loadFailed || prefersStatic);
+  const shouldRenderAnimation = animationData && loadMode !== "static" && !loadFailed && !prefersStatic;
 
   return (
     <div
-      className={`scene-layer scene-layer--animated ${className || ""}`}
+      ref={wrapperRef}
+      className={`scene-layer scene-layer--animated ${className || ""} ${
+        fallbackClassName && showPoster ? fallbackClassName : ""
+      }`}
       style={style}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Lottie {...options} aria-label={name} />
+      {showPoster ? (
+        <img
+          src={posterSrc}
+          alt=""
+          aria-hidden
+          className="scene-layer__poster"
+          loading={loadMode === "eager" ? "eager" : "lazy"}
+          decoding="async"
+          fetchpriority={loadMode === "eager" ? "high" : "auto"}
+        />
+      ) : null}
+
+      {shouldRenderAnimation ? (
+        <Lottie {...options} lottieRef={lottieRef} aria-label={name} />
+      ) : null}
     </div>
   );
 }

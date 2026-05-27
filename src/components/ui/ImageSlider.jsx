@@ -23,6 +23,8 @@ export const ImageSlider = ({ images, alt = "", bgImage }) => {
               src={src}
               alt={alt}
               className="w-full h-auto object-contain shrink-0"
+              loading={i === 0 ? "eager" : "lazy"}
+              decoding="async"
             />
           ))}
         </div>

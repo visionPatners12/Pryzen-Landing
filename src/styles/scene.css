@@ -76,6 +76,18 @@
   height: 100%;
 }
 
+.scene-layer__poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.scene-layer--animated .scene-layer__poster {
+  position: relative;
+  z-index: 0;
+}
+
 .scene-ticket-label {
   position: absolute;
   transform: translate(-50%, -130%);

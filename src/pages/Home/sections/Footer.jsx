@@ -11,6 +11,8 @@ export const Footer = () => {
             src="/landing/landing_assests/nav_logo.svg"
             alt="Team Index logo"
             className="h-8 w-auto"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

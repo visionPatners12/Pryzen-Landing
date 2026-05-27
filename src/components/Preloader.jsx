@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { staticLayers, animatedLayers } from "../data/sceneLayers";
-import { preloadAndCacheLottie } from "../lib/lottieCache";
+import { preloadLottieJson } from "../lib/lottieCache";
 
 const CRITICAL_IMAGES = [
   "/landing/landing_assests/hero_shades.svg",
@@ -10,22 +10,27 @@ const CRITICAL_IMAGES = [
   "/landing/landing_assests/hero_gradiant.svg",
   "/landing/landing_assests/nav_logo.svg",
   "/landing/landing_assests/btnBg.png",
-  "/landing/landing_assests/animation_bg.svg",
   ...staticLayers.map((l) => l.src),
+  ...animatedLayers.map((l) => l.posterSrc).filter(Boolean),
 ];
 
-const CRITICAL_LOTTIE = animatedLayers.map((l) => l.animationUrl);
+const CRITICAL_LOTTIE = animatedLayers
+  .filter((layer) => layer.priority === "critical")
+  .map((l) => l.animationUrl);
 
 const STEP_THRESHOLDS = [0, 30, 65, 95];
 
 const MIN_DISPLAY_MS = 3200;
 const SAFETY_TIMEOUT_MS = 20000;
+const PRELOAD_CONCURRENCY = 3;
 
 function preloadImage(src) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => resolve({ src, ok: true });
     img.onerror = () => reject(new Error(`Image failed: ${src}`));
+    img.decoding = "async";
+    img.fetchPriority = "high";
     img.src = src;
   });
 }
@@ -53,7 +58,7 @@ export default function Preloader({ onReady }) {
   useEffect(() => {
     const allSources = [
       ...CRITICAL_IMAGES.map((src) => ({ type: "image", url: src })),
-      ...CRITICAL_LOTTIE.map((url) => ({ type: "lottie", url })),
+      ...CRITICAL_LOTTIE.map((url) => ({ type: "lottie-json", url })),
     ];
     const total = allSources.length;
     let loaded = 0;
@@ -61,8 +66,11 @@ export default function Preloader({ onReady }) {
     const failedUrls = [];
     const completedUrls = new Set();
     const startTime = Date.now();
+    let isActive = true;
 
     const bump = (url, ok) => {
+      if (!isActive) return;
+
       loaded++;
       completedUrls.add(url);
       if (!ok) {
@@ -73,7 +81,7 @@ export default function Preloader({ onReady }) {
       setProgress(pct);
     };
 
-    const settled = allSources.map(({ type, url }) => {
+    const loadSource = ({ type, url }) => {
       if (type === "image") {
         return preloadImage(url)
           .then(() => bump(url, true))
@@ -82,12 +90,27 @@ export default function Preloader({ onReady }) {
             bump(url, false);
           });
       }
-      return preloadAndCacheLottie(url).then((data) => {
+      return preloadLottieJson(url).then((data) => {
         bump(url, data !== null);
       });
-    });
+    };
 
-    const allSettled = Promise.all(settled);
+    const loadAllSources = async () => {
+      const pendingSources = [...allSources];
+      const workers = Array.from(
+        { length: Math.min(PRELOAD_CONCURRENCY, pendingSources.length) },
+        async () => {
+          while (pendingSources.length > 0) {
+            const source = pendingSources.shift();
+            await loadSource(source);
+          }
+        }
+      );
+
+      await Promise.all(workers);
+    };
+
+    const allSettled = loadAllSources();
 
     let safetyFired = false;
     const safetyTimer = setTimeout(() => {
@@ -102,6 +125,7 @@ export default function Preloader({ onReady }) {
       const elapsed = Date.now() - startTime;
       const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
       setTimeout(() => {
+        if (!isActive) return;
         setProgress(100);
         setExiting(true);
       }, remaining);
@@ -120,10 +144,16 @@ export default function Preloader({ onReady }) {
       const elapsed = Date.now() - startTime;
       const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
       setTimeout(() => {
+        if (!isActive) return;
         setProgress(100);
         setExiting(true);
       }, remaining);
     });
+
+    return () => {
+      isActive = false;
+      clearTimeout(safetyTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -255,6 +285,9 @@ export default function Preloader({ onReady }) {
             src="/landing/landing_assests/nav_logo.svg"
             alt="Pryzen"
             className="h-16 sm:h-20 w-auto relative z-10"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
           />
         </motion.div>
 

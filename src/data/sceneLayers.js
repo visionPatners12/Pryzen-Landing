@@ -1,6 +1,17 @@
 export const SCENE_WIDTH = 6100;
 export const SCENE_HEIGHT = 2160;
 
+export const LOTTIE_POSTERS = {
+  basketBall1: "/assets/lottie/basket-ball-1/images/imgSeq_0.png",
+  sofaGuy1: "/assets/lottie/sofa-guy-1/images/imgSeq_0.webp",
+  chiliz: "/assets/lottie/chiliz/images/imgSeq_20.png",
+  coffee: "/assets/lottie/coffee/images/imgSeq_0.png",
+  football1: "/assets/lottie/football-1/images/imgSeq_0.png",
+  padPaper: "/assets/lottie/pad-paper/images/imgSeq_0.png",
+  signage: "/assets/lottie/signage/images/imgSeq_0.png",
+  ticketWithGlow: "/assets/lottie/ticket-with-glow/images/imgSeq_0.png",
+};
+
 export const staticLayers = [
   { id: "bg-default", src: "/assets/svg/default-background.svg", zIndex: 1 },
   { id: "screen-default", src: "/assets/svg/dual-screen-default.svg", zIndex: 2 },
@@ -31,6 +42,9 @@ export const animatedLayers = [
     id: "lottie-basket-1",
     name: "Basket Ball 1",
     animationUrl: "/assets/lottie/basket-ball-1/animations/effbfe9f-98f4-4e5b-bc09-1f56a9718bd0.json",
+    posterSrc: LOTTIE_POSTERS.basketBall1,
+    priority: "supporting",
+    preloadFrameCount: 12,
     zIndex: 9,
     style: {
       left: "41.4%",
@@ -43,6 +57,9 @@ export const animatedLayers = [
     id: "lottie-sofa-guy-1",
     name: "Sofa Guy 1",
     animationUrl: "/assets/lottie/sofa-guy-1/animations/2a79a033-bc14-47c8-92df-c6b0acd02dcb.json",
+    posterSrc: LOTTIE_POSTERS.sofaGuy1,
+    priority: "critical",
+    preloadFrameCount: 12,
     zIndex: 9,
     style: {
       left: "61.5%",
@@ -55,6 +72,9 @@ export const animatedLayers = [
     id: "lottie-chiliz",
     name: "Chiliz",
     animationUrl: "/assets/lottie/chiliz/animations/10dc854d-a108-497f-ba5e-33d2c822f63c.json",
+    posterSrc: LOTTIE_POSTERS.chiliz,
+    priority: "critical",
+    preloadFrameCount: 12,
     zIndex: 9,
     style: {
       left: "12.4%",
@@ -67,6 +87,9 @@ export const animatedLayers = [
     id: "lottie-coffee",
     name: "Coffee",
     animationUrl: "/assets/lottie/coffee/animations/95b8034e-1f63-4a6f-8dc1-0b68c42f69dd.json",
+    posterSrc: LOTTIE_POSTERS.coffee,
+    priority: "supporting",
+    preloadFrameCount: 12,
     zIndex: 15,
     style: {
       left: "51.7%",
@@ -79,6 +102,9 @@ export const animatedLayers = [
     id: "lottie-football-1",
     name: "Football 1",
     animationUrl: "/assets/lottie/football-1/animations/5665569e-f45d-4d5e-b542-eb3f935a77bf.json",
+    posterSrc: LOTTIE_POSTERS.football1,
+    priority: "supporting",
+    preloadFrameCount: 12,
     zIndex: 9,
     style: {
       left: "30.0%",
@@ -91,6 +117,9 @@ export const animatedLayers = [
     id: "lottie-pad-paper",
     name: "Pad Paper",
     animationUrl: "/assets/lottie/pad-paper/animations/793ed699-1627-48cb-9be2-1e85a850c441.json",
+    posterSrc: LOTTIE_POSTERS.padPaper,
+    priority: "supporting",
+    preloadFrameCount: 12,
     zIndex: 15,
     style: {
       left: "53.3%",
@@ -103,6 +132,9 @@ export const animatedLayers = [
     id: "lottie-signage",
     name: "Signage",
     animationUrl: "/assets/lottie/signage/animations/fdd36935-6bdf-4a86-a641-3bfcd9f917ae.json",
+    posterSrc: LOTTIE_POSTERS.signage,
+    priority: "critical",
+    preloadFrameCount: 12,
     zIndex: 9,
     style: {
       left: "16.0%",
@@ -115,6 +147,9 @@ export const animatedLayers = [
     id: "lottie-ticket-with-glow",
     name: "Ticket With Glow",
     animationUrl: "/assets/lottie/ticket-with-glow/animations/88ada3eb-4d73-407c-9f16-f824f85818ab.json",
+    posterSrc: LOTTIE_POSTERS.ticketWithGlow,
+    priority: "critical",
+    preloadFrameCount: 12,
     zIndex: 15,
     style: {
       left: "41.2%",

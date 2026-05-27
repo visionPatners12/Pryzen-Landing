@@ -15,6 +15,7 @@ import {
   BaseIcon,
   USDCIcon,
 } from "../../../components/ui/CryptoIcons";
+import { LOTTIE_POSTERS } from "../../../data/sceneLayers";
 import { CARD_GRADIENT_STYLE } from "../../../styles/constants";
 
 const headerReveal = {
@@ -122,6 +123,8 @@ export const EcosystemSection = () => {
               src="/landing/landing_assests/socios.svg"
               alt="Socios wallet"
               className="h-8 w-auto b-3 mt-5"
+              loading="lazy"
+              decoding="async"
             />
             <GoldButton href="https://fan-app.pryzen.io" className="mt-6 text-sm sm:text-base w-[253px] text-black text-center justify-center">
               {t("ecosystem.fanAppCta")}
@@ -135,6 +138,7 @@ export const EcosystemSection = () => {
             <AnimatedLayer
               name="Sofa Guy 1"
               animationUrl={ANIMATION_URLS.sofaGuy}
+              posterSrc={LOTTIE_POSTERS.sofaGuy1}
               preserveAspectRatio="xMidYMin slice"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
             />
@@ -160,6 +164,8 @@ export const EcosystemSection = () => {
                   src={`/landing/fan-app-logos/${logo}.png`}
                   alt={`${logo.toUpperCase()} fan token`}
                   className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -185,6 +191,7 @@ export const EcosystemSection = () => {
             <AnimatedLayer
               name="Ticket With Glow"
               animationUrl={ANIMATION_URLS.ticket}
+              posterSrc={LOTTIE_POSTERS.ticketWithGlow}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
             />
           </AnimationCard>
@@ -251,6 +258,8 @@ export const EcosystemSection = () => {
                     src={`/landing/fan-tokens/${tk}.png`}
                     alt={tk.toUpperCase()}
                     className="w-[28px] h-[28px] rounded-full object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ))}
               </div>
@@ -272,6 +281,7 @@ export const EcosystemSection = () => {
             <AnimatedLayer
               name="Chiliz"
               animationUrl={ANIMATION_URLS.chiliz}
+              posterSrc={LOTTIE_POSTERS.chiliz}
               style={{
                 width: "90%",
                 position: "relative",

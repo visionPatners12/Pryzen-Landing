@@ -36,6 +36,8 @@ const CenterLogo = ({ size = 140 }) => (
       alt="Pryzen"
       style={{ width: size * 0.46, height: size * 0.46 }}
       className="object-contain"
+      loading="lazy"
+      decoding="async"
     />
   </div>
 );

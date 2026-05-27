@@ -21,7 +21,10 @@ export const AnimationCard = ({ children, bgImage, className, style, width, heig
       <img
         src={bgImage}
         alt=""
+        aria-hidden
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        loading="lazy"
+        decoding="async"
       />
     )}
     <div className="relative w-full h-full">{children}</div>

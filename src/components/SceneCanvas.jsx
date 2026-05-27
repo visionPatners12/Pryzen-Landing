@@ -30,7 +30,8 @@ function SceneCanvas({ className = "", compact = false, immersive = false }) {
               layer.placement ? "scene-layer--placed" : "scene-layer--fullscreen"
             }`}
             src={layer.src}
-            alt={layer.id}
+            alt=""
+            aria-hidden
             style={
               layer.placement
                 ? {
@@ -50,6 +51,8 @@ function SceneCanvas({ className = "", compact = false, immersive = false }) {
                   }
             }
             loading="eager"
+            decoding="async"
+            fetchpriority={immersive ? "high" : "auto"}
           />
         ))}
 
@@ -58,6 +61,9 @@ function SceneCanvas({ className = "", compact = false, immersive = false }) {
             key={layer.id}
             name={layer.name}
             animationUrl={layer.animationUrl}
+            loadMode={layer.priority === "critical" ? "eager" : "static"}
+            posterSrc={layer.posterSrc}
+            preloadFrameCount={layer.preloadFrameCount}
             className={layer.id === "lottie-ticket-with-glow" ? "scene-layer--interactive" : ""}
             onMouseEnter={
               layer.id === "lottie-ticket-with-glow" ? () => setIsTicketHovered(true) : undefined

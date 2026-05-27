@@ -152,6 +152,8 @@ export const PryxPryzeSection = () => {
                         src={src}
                         alt={`PRYX example ${index + 1}`}
                         className="max-h-[130px] sm:max-h-[150px] w-auto object-contain transition-transform duration-300 group-hover/card:scale-105"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </motion.div>
                   ))}
@@ -284,6 +286,8 @@ export const PryxPryzeSection = () => {
                   src="/landing/landing_assests/coins.svg"
                   alt="PRYZE token"
                   className="relative z-10 w-full h-auto object-contain p-4"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>

@@ -4,7 +4,7 @@ export const GoldButton = ({
   children,
   icon,
   className = "",
-  backgroundImage = "landing/landing_assests/btnBg.png",
+  backgroundImage = "/landing/landing_assests/btnBg.png",
   href,
   ...rest
 }) => {
@@ -24,6 +24,9 @@ export const GoldButton = ({
         className="absolute top-0.5 left-0 w-full h-full group-hover:saturate-200 transition-all duration-500 select-none pointer-events-none"
         style={{ zIndex: -1 }}
         alt=""
+        aria-hidden
+        loading="lazy"
+        decoding="async"
       />
     </>
   );
