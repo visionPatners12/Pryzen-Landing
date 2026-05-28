@@ -137,11 +137,29 @@ export const PryxPryzeSection = () => {
                     background: "radial-gradient(ellipse at 50% 50%, rgba(254,180,19,0.05) 0%, transparent 70%)",
                   }}
                 />
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 relative z-10">
-                  {PRYX_EXAMPLES.map((src, index) => (
+                <div className="grid grid-cols-2 sm:grid-cols-3 grid-rows-[auto_auto] gap-3 relative z-10">
+                  <motion.div
+                    key={PRYX_EXAMPLES[0]}
+                    custom={0}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="group/card col-span-2 sm:col-span-1 sm:row-span-2 rounded-xl bg-black/30 border border-[#FEB413]/20 p-3 flex items-center justify-center min-h-[180px] sm:min-h-[280px] transition-all duration-300 hover:border-[#FEB413]/40 hover:bg-black/40 hover:shadow-[0_0_30px_rgba(254,180,19,0.15)]"
+                    style={{ background: "linear-gradient(160deg, rgba(254,180,19,0.06) 0%, rgba(0,0,0,0.4) 100%)" }}
+                  >
+                    <img
+                      src={PRYX_EXAMPLES[0]}
+                      alt="PRYX featured"
+                      className="max-h-[160px] sm:max-h-[240px] w-auto object-contain transition-transform duration-300 group-hover/card:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </motion.div>
+                  {PRYX_EXAMPLES.slice(1).map((src, index) => (
                     <motion.div
                       key={src}
-                      custom={index}
+                      custom={index + 1}
                       variants={fadeUp}
                       initial="hidden"
                       whileInView="visible"
@@ -150,7 +168,7 @@ export const PryxPryzeSection = () => {
                     >
                       <img
                         src={src}
-                        alt={`PRYX example ${index + 1}`}
+                        alt={`PRYX example ${index + 2}`}
                         className="max-h-[130px] sm:max-h-[150px] w-auto object-contain transition-transform duration-300 group-hover/card:scale-105"
                         loading="lazy"
                         decoding="async"
