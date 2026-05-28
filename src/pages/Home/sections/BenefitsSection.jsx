@@ -75,30 +75,38 @@ export const BenefitsSection = () => {
           ))}
         </div>
 
-        <div className="relative shrink-0 w-52 flex items-center justify-center">
+        <div className="relative shrink-0 w-56 flex items-center justify-center">
           <div
             className="absolute left-0 w-px"
-            style={{ top: "18%", bottom: "18%", background: LINE }}
+            style={{ top: "12%", bottom: "12%", background: LINE }}
           />
           <div
-            className="absolute left-0 h-px w-10 top-1/2"
-            style={{ background: LINE }}
+            className="absolute left-0 h-px w-12 top-1/2"
+            style={{ background: `linear-gradient(to right, ${LINE}, rgba(254,180,19,0.3))` }}
           />
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse 60% 55% at 50% 50%, rgba(254,180,19,0.2) 0%, rgba(254,180,19,0.07) 45%, transparent 72%)",
+                "radial-gradient(ellipse 65% 60% at 50% 50%, rgba(254,180,19,0.25) 0%, rgba(254,180,19,0.08) 40%, transparent 70%)",
             }}
           />
-          <CenterLogo size={140} />
           <div
-            className="absolute right-0 h-px w-10 top-1/2"
-            style={{ background: LINE }}
+            className="absolute inset-0 pointer-events-none animate-pulse"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 50%, rgba(254,180,19,0.08) 0%, transparent 50%)",
+              animationDuration: "3s",
+            }}
+          />
+          <CenterLogo size={150} />
+          <div
+            className="absolute right-0 h-px w-12 top-1/2"
+            style={{ background: `linear-gradient(to left, ${LINE}, rgba(254,180,19,0.3))` }}
           />
           <div
             className="absolute right-0 w-px"
-            style={{ top: "18%", bottom: "18%", background: LINE }}
+            style={{ top: "12%", bottom: "12%", background: LINE }}
           />
         </div>
 

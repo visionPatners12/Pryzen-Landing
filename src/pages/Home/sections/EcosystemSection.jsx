@@ -291,24 +291,56 @@ export const EcosystemSection = () => {
               </div>
             </div>
           </div>
-          <AnimationCard
-            bgImage="/landing/landing_assests/animation_bg.svg"
-            className="h-[300px] sm:h-[400px] lg:h-[502px]"
-            style={{ minHeight: "unset" }}
+          <div
+            className="flex-1 w-full rounded-xl overflow-hidden h-[300px] sm:h-[400px] lg:h-[502px] relative"
+            style={{
+              backgroundImage: "url('/landing/landing_assests/animation_bg.svg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
-            <AnimatedLayer
-              name="Base"
-              loadMode="static"
-              posterSrc={LOTTIE_POSTERS.base}
-              style={{
-                width: "38%",
-                position: "relative",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-              }}
-            />
-          </AnimationCard>
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6">
+              <div className="relative w-full max-w-[280px]">
+                <svg viewBox="0 0 280 160" fill="none" className="w-full h-auto">
+                  <path d="M20 120 L60 100 L100 110 L140 60 L180 80 L220 40 L260 50" stroke="rgba(254,180,19,0.6)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                  <path d="M20 120 L60 100 L100 110 L140 60 L180 80 L220 40 L260 50 L260 160 L20 160 Z" fill="url(#chartGrad)" opacity="0.3"/>
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(254,180,19,0.4)"/>
+                      <stop offset="100%" stopColor="rgba(254,180,19,0)"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="140" cy="60" r="4" fill="#FEB413"/>
+                  <circle cx="220" cy="40" r="4" fill="#FEB413"/>
+                  <circle cx="260" cy="50" r="4" fill="#FEB413"/>
+                </svg>
+              </div>
+              <div className="flex items-center gap-3 mt-2">
+                {TEAM_INDEX_TOKENS.map((token) => (
+                  <div
+                    key={token.id}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center"
+                    style={{
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.12)",
+                      boxShadow: "0 4px 16px rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    <img
+                      src={token.src}
+                      alt={token.alt}
+                      className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ))}
+              </div>
+              <p className="text-white/40 text-xs text-center mt-1 tracking-wide uppercase">
+                Market Performance
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="flex justify-center mt-10 mb-6">
