@@ -68,20 +68,7 @@ export const animatedLayers = [
       transform: "translate(-25.3%, -50.0%)",
     },
   },
-  {
-    id: "base-logo",
-    name: "Base",
-    posterSrc: LOTTIE_POSTERS.base,
-    priority: "supporting",
-    preloadFrameCount: 0,
-    zIndex: 9,
-    style: {
-      left: "12.4%",
-      top: "17.5%",
-      width: "6.8%",
-      transform: "translate(-50.0%, -50.0%)",
-    },
-  },
+
   {
     id: "lottie-coffee",
     name: "Coffee",
